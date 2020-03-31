@@ -2,7 +2,7 @@
 #### CPSC6830 - Game Programming Final Project - Phage Shift game.
 #### Members: Benjamin Warner, Derek Andrews, Hayden Lewis
 
-![useful image](/images/phage2.png)
+![useful image]({{ site.url }}/images/phage2.png)
 
 ### What is the goal of the game? What is the story or theme or emotion?
 
