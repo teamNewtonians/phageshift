@@ -2,6 +2,8 @@
 #### CPSC6830 - Game Programming Final Project - a game called Phage Shift.
 #### Members: Benjamin Warner, Derek Andrews, Hayden Lewis
 
+![useful image]({{ site.url }}/images/phage2.png)
+
 ### What is the goal of the game? What is the story or theme or emotion?
 
 You play as a bacteriophage (the Phage) re-engineered for good. Your mission is to eliminate the virus that has
