@@ -5,48 +5,62 @@ using UnityEngine;
 public class fieldGenerator : MonoBehaviour
 {
     int rndWall = 0;  //To wall or not to wall.
-    int wallCount = 0; //Walls in a row.
+    int rndTree = 0;
+    int rndYofs = 0;
     List<int> wallList = new List<int>();
     public GameObject cellWallZ;
     public GameObject cellWallX;
+    public GameObject optTree;
     public GameObject wallClone;
     public GameObject exitdoor;
+    public ParticleSystem bloodstream;
     Vector3 clonePos;
     public List<GameObject> walls = new List<GameObject>();
+    public List<GameObject> trees = new List<GameObject>();
     public Animator doorAnim;
     public float counter = 10.0f;
     public bool doorOpen = false;
+    private int grid = 10;
+    private int size = 100;
 
     // Start is called before the first frame update
     void Start()
     {
         exitdoor = GameObject.Find("exitdoor");
         doorAnim = exitdoor.GetComponent<Animator>();
+        bloodstream = GameObject.Find("bloodstream").GetComponent<ParticleSystem>();
+        bloodstream.Stop();
         doorAnim.SetBool("doorOpen", doorOpen);
-        for (int x = -15; x <= 15; x += 5)
+        for (int x = -size/2; x <= size/2; x += grid)
         {
-            for (int z = -25; z <= 25; z += 5)
+            for (int z = -size/4; z <= size/4; z += grid)
             {
                 rndWall = Random.Range(0, 2);
+                rndTree = Random.Range(0, 3);
+                rndYofs = Random.Range(0, 3);
                 if(rndWall == 1)
                 {
-                    clonePos = new Vector3( x, 1, z);
+                    clonePos = new Vector3( x, rndYofs, z);
                     walls.Add(Instantiate(cellWallZ, clonePos, cellWallZ.transform.rotation));
-                    wallCount++;
+                }
+                if (rndTree == 1)
+                {
+                    clonePos = new Vector3(x, rndYofs-1, z+4);
+                    trees.Add(Instantiate(optTree, clonePos, optTree.transform.rotation));
                 }
             }
             
         }
-        for (int z = -15; z <= 15; z += 5)
+        for (int z = -size/2; z <= size/2; z += grid)
         {
-            for (int x = -25; x <= 25; x += 5)
+            for (int x = -size/4; x <= size/4; x += grid)
             {
                 rndWall = Random.Range(0, 2);
+                rndYofs = Random.Range(0, 3);
                 if (rndWall == 1)
                 {
-                    clonePos = new Vector3(x, 1, z);
+                    clonePos = new Vector3(x, rndYofs, z);
                     walls.Add(Instantiate(cellWallX, clonePos, cellWallX.transform.rotation));
-                    wallCount++;
                 }
             }
 
@@ -58,16 +72,18 @@ public class fieldGenerator : MonoBehaviour
     {
 
         counter -= Time.deltaTime;
-        if((int)counter == 0 && !doorOpen)
+        if ((int)counter == 0 && !doorOpen)
         {
             doorOpen = true;
             doorAnim.SetBool("doorOpen", doorOpen);
+            bloodstream.Play();
             counter = 10.0f;
         }
         if ((int)counter == 0 && doorOpen)
         {
             doorOpen = false;
             doorAnim.SetBool("doorOpen", doorOpen);
+            bloodstream.Stop();
             counter = 10.0f;
         }
     }
