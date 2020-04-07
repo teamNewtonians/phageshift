@@ -1,0 +1,82 @@
+Title: Phage Shift
+
+What is the goal of the game?  What is the story or theme or
+emotion?
+
+-You play as a bacteriophage (the Phage) re-engineered for good.
+ Your mission is to eliminate the virus that has spread throughout the mysterious being referred to simply
+ as "the Host".  It is unknown exactly why you were created or who the host is at this point, but you are
+ only driven by the need to purge the enemies... or disintegrate trying.
+
+ The theme is energetic survival, with an underlyig mystery as to where you are.
+ Stay alive and eliminate as much of the virus to see if there is an end to this journey.
+
+Ideas on style and design.  What does the game world look like?
+
+-The world as you know it cosists of sections of some organic being, with a minimalist and stylized design.
+ Each floor that you encounter is different from the last, but there is no discernable pattern.  Walls block
+ your path, hazards slow or harm you, and viruses lurk in growing numbers.
+
+ Clear the floor to open a pathway down to the next level, until you reach the core.  Clear all floors to win,
+ or leave a score if you don't make it.
+
+How does the player control the game?  Is there a user interface?
+
+-Control the Phage with WASD to move around the map.  Mouse over to aim and click to shoot.  
+ Use QE to rotate the camera, P to pause, and ESC to quit.
+
+ There is a title screen with a start and quit button and previous highscores listed.
+
+ A pause screen is available with controls information.  A limited HUD shows the timer value
+ and at least shows how to pause (ex: "P to pause").  If time runs out, you are overrun and lose.
+
+What other elements are there (NPCs, collectibles, dangers)?
+
+-In addition to the virus hovering around the playfield, some power-ups and environmental dangers will appear.
+ Enemies will float around randomly and follow the player when in range.  Power-ups can be found around the
+ field to increase firerate or damage.
+
+ The playfield is obstructed by walls also, and some walls have spikes.  Beware!  Other cautions include high
+ speed currents when there are no walls to control flow, this will make movement difficult but not impossible.
+ The player must try not to fall off the edge.
+
+
+Ben
+---------------------------------------------------------------------------
+
+What scripts need to be programmed?
+3 main pillars:
+-Player
+    -movement
+    -shooting
+    -health
+-Enemy
+    -AI
+    -spawning
+    -attacking
+    -movement
+-Map generation
+    -assets
+    -generation
+
+Think through the player’s experience and interest curve
+What is your minimum playable game?
+Basic moving/shooting on a fixed map.
+
+Derek
+-------------------------------------------
+
+Who has ownership for which scripts and assets and which parts of
+the game (each person needs to have ownership for a reasonably
+sized script)?
+Map generation - Ben
+Enemies - Hayden
+Character - Derek
+
+
+Split into what is provided at minimum and possible extensions.
+What do you plan to do for each build?
+Get basic functionality for first build, then add complexities (power ups, level generation, etc.)
+
+When are your regular meetings times?
+Literally whenever
