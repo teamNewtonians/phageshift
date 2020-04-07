@@ -32,7 +32,7 @@ public class CreatureController : MonoBehaviour {
 
         float mSpeed = (Input.GetButton ("Fire3") ? sprintSpeed : walkSpeed);
         velocity = Vector3.MoveTowards (velocity, new Vector3 (Input.GetAxis ("Horizontal"), 0f, Input.GetAxis ("Vertical")).normalized, Time.deltaTime * moveInputFactor);
-        rSpeed = Mathf.MoveTowards (rSpeed, Input.GetAxis ("Turn") * rotationSpeed, rotateInputFactor * Time.deltaTime);
+        //rSpeed = Mathf.MoveTowards (rSpeed, Input.GetAxis ("Turn") * rotationSpeed, rotateInputFactor * Time.deltaTime);
         transform.Rotate (0f, rSpeed * Time.deltaTime, 0f);
         transform.position += velocity * mSpeed * Time.deltaTime;
 
