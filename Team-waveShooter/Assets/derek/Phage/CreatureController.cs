@@ -6,7 +6,7 @@ public class CreatureController : MonoBehaviour {
     public float moveInputFactor = 5f;
     public Vector3 velocity;
     public float walkSpeed = 2f;
-    public float sprintSpeed = 5f;
+    public float sprintSpeed = 15f;
     public float rotateInputFactor = 10f;
     public float rotationSpeed = 10f;
     public float averageRotationRadius = 3f;
