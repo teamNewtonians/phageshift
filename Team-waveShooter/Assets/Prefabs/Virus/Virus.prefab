@@ -2943,10 +2943,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4947096828366936390}
   - component: {fileID: 7637439705980476659}
-  - component: {fileID: 7023353815299435824}
   - component: {fileID: -3567987395699083657}
   - component: {fileID: 4613290761505360585}
-  - component: {fileID: -746558163925662071}
+  - component: {fileID: -939190348369528441}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Untagged
@@ -2989,27 +2988,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7023353815299435824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4947096828366936391}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7aaa7bb6b9384548b1e290d925e3732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: {fileID: 11400000, guid: 8abd14fd8adda084fb057e1a22c324d1, type: 2}
-  enemyStats: {fileID: 11400000, guid: 06fb59faf1ba97a4e9e9c3ad41881981, type: 2}
-  eyes: {fileID: 4947096828604546013}
-  remainState: {fileID: 11400000, guid: 161fb03ec475cb14a8274f8a785842db, type: 2}
-  navMeshAgent: {fileID: 0}
-  wayPointList: []
-  nextWayPoint: 0
-  chaseTarget: {fileID: 0}
-  stateTimeElapsed: 0
 --- !u!195 &-3567987395699083657
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3048,7 +3026,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-746558163925662071
+--- !u!114 &-939190348369528441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3057,9 +3035,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4947096828366936391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1f1ebcea8250c49b9ba3974a18bd30, type: 3}
+  m_Script: {fileID: 11500000, guid: bbe55b1c765097d4eb5f6fdfd0189b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseTarget: {fileID: 0}
+  navMeshAgent: {fileID: -3567987395699083657}
 --- !u!1 &4947096828486681405
 GameObject:
   m_ObjectHideFlags: 0
