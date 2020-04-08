@@ -1303,8 +1303,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.046187118, b: 0.0047169924, a: 0.78431374}
-        key1: {r: 1, g: 1, b: 1, a: 0.78431374}
+        key0: {r: 0.18867922, g: 0.008735149, b: 0, a: 1}
+        key1: {r: 1, g: 0.047946416, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5666,7 +5666,7 @@ GameObject:
   - component: {fileID: 2513058052269266788}
   m_Layer: 0
   m_Name: exitdoor
-  m_TagString: exit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
