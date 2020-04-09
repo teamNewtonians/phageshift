@@ -365,8 +365,8 @@ GameObject:
   - component: {fileID: 7182214397562795932}
   - component: {fileID: 8077434092732614949}
   m_Layer: 0
-  m_Name: phageNew
-  m_TagString: Player
+  m_Name: phageNew-old
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

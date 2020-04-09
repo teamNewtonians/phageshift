@@ -7,10 +7,12 @@ public class fieldGenerator : MonoBehaviour
     int rndWall = 0;  //To wall or not to wall.
     int rndTree = 0;
     int rndYofs = 0;
+    int rndVir = 0;
 
     public GameObject cellWallZ;
     public GameObject cellWallX;
     public GameObject optTree;
+    public GameObject virus;
     public GameObject exitdoor;
     public GameObject startSpawn;
     public GameObject organFloor;
@@ -90,13 +92,19 @@ public class fieldGenerator : MonoBehaviour
         {
             Destroy(trees[i]);
         }
+        for (int i = 0; i < viruses.Count; i++)
+        {
+            Destroy(viruses[i]);
+        }
         walls = new List<GameObject>(0);
         trees = new List<GameObject>(0);
+        viruses = new List<GameObject>(0);
         for (int x = (-size / 2); x <= (size / 2); x += grid)
         {
             for (int z = (-size / 2) + (grid / 2); z <= (size / 2)- (grid / 2); z += grid)
             {
                 rndWall = Random.Range(0, 2);
+                rndVir = Random.Range(0, 2);
                 rndTree = Random.Range(0, 3);
                 rndYofs = Random.Range(0, 3);
                 if ((rndWall == 1 || x == -size / 2 || x == size / 2) && !(x == (-size / 2) + grid || x == (size / 2) - grid))
@@ -109,6 +117,11 @@ public class fieldGenerator : MonoBehaviour
                     clonePos = new Vector3(x, rndYofs - 1, z + 4);
                     optTree.transform.Rotate((float)0, (float)rndYofs * 45, (float)0, Space.Self);
                     trees.Add(Instantiate(optTree, clonePos, optTree.transform.rotation));
+                }
+                if ((rndVir == 1) && (viruses.Count < vCount))
+                {
+                    clonePos = new Vector3(x + 5, 0, z + 5);
+                    viruses.Add(Instantiate(virus, clonePos, virus.transform.rotation));
                 }
             }
 
