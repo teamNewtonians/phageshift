@@ -11,6 +11,7 @@ public class CreatureController : MonoBehaviour {
     public float rotationSpeed = 10f;
     public float averageRotationRadius = 3f;
     private float rSpeed = 0;
+    public int health = 100;
 
     public ProceduralLegPlacement[] legs;
     private int index;
@@ -52,7 +53,20 @@ public class CreatureController : MonoBehaviour {
             index = (index + 1) % legs.Length;
         }
     }
-       
+
+    void OnTriggerEnter( Collider other)
+    {
+        if (other.gameObject.tag == "hole" && GameObject.Find("playField").GetComponent<fieldGenerator>().score == GameObject.Find("playField").GetComponent<fieldGenerator>().vCount)
+        {
+            GameObject.Find("playField").GetComponent<fieldGenerator>().level += 1;
+            GameObject.Find("playField").GetComponent<fieldGenerator>().totScore = GameObject.Find("playField").GetComponent<fieldGenerator>().score;
+            GameObject.Find("playField").GetComponent<fieldGenerator>().score = 0;
+        }
+        if (other.gameObject.tag == "hole" && GameObject.Find("playField").GetComponent<fieldGenerator>().score == GameObject.Find("playField").GetComponent<fieldGenerator>().vCount)
+        {
+            health -= 5;
+        }
+    }   
 
     public void OnDrawGizmosSelected () {
         Gizmos.DrawWireSphere (transform.position, averageRotationRadius);

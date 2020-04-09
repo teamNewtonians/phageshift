@@ -247,6 +247,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 197202439350067642, guid: c2f1d4bed20d8d64c8073d18494f98cd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 197202439646908994, guid: c2f1d4bed20d8d64c8073d18494f98cd,
         type: 3}
       propertyPath: doorOpen

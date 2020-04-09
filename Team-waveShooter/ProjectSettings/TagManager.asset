@@ -8,6 +8,7 @@ TagManager:
   - exit
   - virus
   - Projectile
+  - hole
   layers:
   - Default
   - TransparentFX

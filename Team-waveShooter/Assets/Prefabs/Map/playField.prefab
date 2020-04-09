@@ -308,6 +308,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6986012593083246334, guid: 0c4b9d6e169f0374787c41f24710fdf6,
+        type: 3}
+      propertyPath: m_TagString
+      value: hole
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986012593083246335, guid: 0c4b9d6e169f0374787c41f24710fdf6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6986012593395832952, guid: 0c4b9d6e169f0374787c41f24710fdf6,
         type: 3}
       propertyPath: m_LocalPosition.x

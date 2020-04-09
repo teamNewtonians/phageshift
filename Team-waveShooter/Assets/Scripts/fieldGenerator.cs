@@ -67,15 +67,24 @@ public class fieldGenerator : MonoBehaviour
             doorOpen = true;
             doorAnim.SetBool("doorOpen", doorOpen);
             bloodstream.Play();
+
+            //if()
+            //{
+            //    level += 1;
+            //    totScore = score;
+            //    score = 0;
+            //}
         }
         if (score == 0 && doorOpen)
         {
+            playerPhage.transform.position = startSpawn.transform.position;
             fieldMaker();
             doorOpen = false;
             doorAnim.SetBool("doorOpen", doorOpen);
             bloodstream.Stop();
         }
     }
+
     void fieldMaker()
     {
         playerPhage.transform.position = startSpawn.transform.position;
