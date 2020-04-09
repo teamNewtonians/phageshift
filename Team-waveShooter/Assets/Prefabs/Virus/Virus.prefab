@@ -2947,7 +2947,7 @@ GameObject:
   - component: {fileID: -939190348369528441}
   m_Layer: 0
   m_Name: Virus
-  m_TagString: Untagged
+  m_TagString: virus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3023,6 +3023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseTarget: {fileID: 0}
   navMeshAgent: {fileID: -3567987395699083657}
+  isDead: 0
 --- !u!1 &4947096828486681405
 GameObject:
   m_ObjectHideFlags: 0
