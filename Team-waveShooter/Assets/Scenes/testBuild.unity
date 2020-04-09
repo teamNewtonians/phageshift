@@ -549,12 +549,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3352145836663818451}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &647865101 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1797199870142384892, guid: 641445f3ff4b3504aa1aa96bce9c1f2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1088742591241219023}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +686,12 @@ MonoBehaviour:
   stepDuration: 0.2
   stepOffset: 0
   lastStep: 0
+--- !u!4 &782511850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4299067701619708001, guid: 641445f3ff4b3504aa1aa96bce9c1f2b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088742591241219023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &846049973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299067701619708001, guid: 641445f3ff4b3504aa1aa96bce9c1f2b,
@@ -921,35 +921,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5150954533129636987}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1586946159 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 197202439646908996, guid: c2f1d4bed20d8d64c8073d18494f98cd,
-    type: 3}
-  m_PrefabInstance: {fileID: 594695645}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1586946160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586946159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49bfaff84f605914cb586c8d7d0cf9f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ikTarget: {fileID: 0}
-  isMounted: 0
-  ikType: 0
-  iterations: 4
-  segmentCount: 4
-  segmentLength: 1
-  minThickness: 0.01
-  maxThickness: 0.1
-  segmentMesh: {fileID: 0}
-  segmentMaterial: {fileID: 0}
-  segments: []
 --- !u!4 &1682086712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299067701619708001, guid: 641445f3ff4b3504aa1aa96bce9c1f2b,
@@ -983,7 +954,7 @@ MonoBehaviour:
   optimalRestingPosition: {x: 0, y: 0, z: 1}
   worldVelocity: {x: 1, y: 0, z: 0}
   worldTarget: {x: 0, y: 0, z: 0}
-  ikTarget: {fileID: 647865101}
+  ikTarget: {fileID: 782511850}
   ikPoleTarget: {fileID: 1828295560}
   autoStep: 1
   solidLayer:
