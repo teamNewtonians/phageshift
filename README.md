@@ -2,6 +2,7 @@
 #### CPSC6830 - Game Programming Final Project - Phage Shift game.
 #### Members: Benjamin Warner, Derek Andrews, Hayden Lewis
 
+[Check out our blog!](https://teamnewtonian.github.io/phageshift/blog)
 ![Bacteriphages in their natural environment](https://teamnewtonian.github.io/phageshift/images/phage2.PNG)
 
 ### What is the goal of the game? What is the story or theme or emotion?
