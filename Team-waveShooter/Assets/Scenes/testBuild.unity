@@ -294,7 +294,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   stepHeightMultiplier: 0.25
   stepCooldown: 1
-  stepDuration: 0.5
+  stepDuration: 0.2
   stepOffset: 0
   lastStep: 0
 --- !u!1 &323799833 stripped
@@ -339,7 +339,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   stepHeightMultiplier: 0.25
   stepCooldown: 1
-  stepDuration: 0.5
+  stepDuration: 0.2
   stepOffset: 0
   lastStep: 0
 --- !u!1001 &347891271
@@ -471,7 +471,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   stepHeightMultiplier: 0.25
   stepCooldown: 1
-  stepDuration: 0.5
+  stepDuration: 0.2
   stepOffset: 0
   lastStep: 0
 --- !u!1001 &594695645
@@ -689,7 +689,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   stepHeightMultiplier: 0.25
   stepCooldown: 1
-  stepDuration: 0.5
+  stepDuration: 0.2
   stepOffset: 0
   lastStep: 0
 --- !u!4 &846049973 stripped
@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -775,12 +776,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0.6, y: 30.9, z: -52.2}
+  m_LocalPosition: {x: 0.3, y: 18.2, z: -10.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0e5e34f4ec86549b29a081b769474d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2821164256676330098}
 --- !u!4 &967801047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299067701619708001, guid: 641445f3ff4b3504aa1aa96bce9c1f2b,
@@ -829,7 +843,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   stepHeightMultiplier: 0.25
   stepCooldown: 1
-  stepDuration: 0.5
+  stepDuration: 0.2
   stepOffset: 0
   lastStep: 0
 --- !u!1001 &1394031042
@@ -907,6 +921,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5150954533129636987}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1586946159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197202439646908996, guid: c2f1d4bed20d8d64c8073d18494f98cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 594695645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1586946160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586946159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bfaff84f605914cb586c8d7d0cf9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ikTarget: {fileID: 0}
+  isMounted: 0
+  ikType: 0
+  iterations: 4
+  segmentCount: 4
+  segmentLength: 1
+  minThickness: 0.01
+  maxThickness: 0.1
+  segmentMesh: {fileID: 0}
+  segmentMaterial: {fileID: 0}
+  segments: []
 --- !u!4 &1682086712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299067701619708001, guid: 641445f3ff4b3504aa1aa96bce9c1f2b,
@@ -955,7 +998,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   stepHeightMultiplier: 0.25
   stepCooldown: 1
-  stepDuration: 0.5
+  stepDuration: 0.2
   stepOffset: 0
   lastStep: 0
 --- !u!4 &1828295560 stripped
@@ -1392,9 +1435,9 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   walkSpeed: 8
   sprintSpeed: 10
-  rotateInputFactor: 10
-  rotationSpeed: 10
-  averageRotationRadius: 3
+  rotateInputFactor: 45
+  rotationSpeed: 90
+  averageRotationRadius: 2.95
   legs:
   - {fileID: 1070087797}
   - {fileID: 69265343}
@@ -1402,8 +1445,8 @@ MonoBehaviour:
   - {fileID: 323799835}
   - {fileID: 541087684}
   - {fileID: 732739400}
-  dynamicGait: 0
-  timeBetweenSteps: 0.25
+  dynamicGait: 1
+  timeBetweenSteps: 1.5
   maxTargetDistance: 1
   lastStep: 0
 --- !u!1001 &2878663241846788473
@@ -1693,7 +1736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2821164256676330098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.390303, y: 2.52, z: 3.7}
+  m_LocalPosition: {x: 0, y: 2.55, z: 5.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1070087796}
