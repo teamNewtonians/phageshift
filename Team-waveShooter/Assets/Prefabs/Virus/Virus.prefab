@@ -3021,7 +3021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe55b1c765097d4eb5f6fdfd0189b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseTarget: {fileID: 0}
+  chaseTarget: {fileID: 3747782444928345046, guid: c300ea7db3dec874e90d2dc57ecb2e0e,
+    type: 3}
   navMeshAgent: {fileID: -3567987395699083657}
 --- !u!1 &4947096828486681405
 GameObject:

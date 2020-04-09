@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class menuMaker : MonoBehaviour
 {
@@ -13,11 +14,17 @@ public class menuMaker : MonoBehaviour
     public GameObject startMenu;
     public GameObject pauseMenu;
     public GameObject hudPanel;
+    public Text scoreNtimer;
     public Animator startButton;
     public Animator scoresButton;
     public Animator quitButton;
     public Animator resumeButton;
     public Animator quit2Button;
+    public int score;
+    public int vCount;
+    public int totScore;
+    public int health;
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +34,12 @@ public class menuMaker : MonoBehaviour
         hud = false;
         index = 0;
         maxIndex = 2;
+        timer = 0;
 
         startMenu = GameObject.Find("StartMenu");
         pauseMenu = GameObject.Find("PauseMenu");
         hudPanel = GameObject.Find("HUD");
+        scoreNtimer = GameObject.Find("scoreNtimer").GetComponent<Text>();
         startButton = GameObject.Find("StartMenu/StartButton").GetComponent<Animator>();
         scoresButton = GameObject.Find("StartMenu/ScoresButton").GetComponent<Animator>();
         quitButton = GameObject.Find("StartMenu/QuitButton").GetComponent<Animator>();
@@ -41,6 +50,11 @@ public class menuMaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        score = GameObject.Find("playField").GetComponent<fieldGenerator>().score;
+        vCount = GameObject.Find("playField").GetComponent<fieldGenerator>().vCount;
+        totScore = GameObject.Find("playField").GetComponent<fieldGenerator>().totScore;
+        timer += Time.deltaTime;
+
         //Reset all button states
         startButton.SetBool("isSelected", false);
         scoresButton.SetBool("isSelected", false);
@@ -53,10 +67,16 @@ public class menuMaker : MonoBehaviour
         resumeButton.SetBool("isPressed", false);
         quit2Button.SetBool("isPressed", false);
 
+        if (hud)
+        {
+            scoreNtimer.text = "Timer: " + (int)timer + " Score: " + score + " / " + vCount;
+        }
+
         if (!paused && !start)
         {
             Time.timeScale = 1;
         }
+
         //Pause
         if (Input.GetKeyDown(KeyCode.P) && !start)
         {

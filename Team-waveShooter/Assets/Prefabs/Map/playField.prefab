@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 197202439031748981}
   m_Layer: 0
-  m_Name: start
+  m_Name: startSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197202439031748982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 40}
+  m_LocalPosition: {x: 40, y: 2, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197202439646908995}
@@ -193,14 +193,21 @@ MonoBehaviour:
   cellWallX: {fileID: 7248463877801581350, guid: f1508fe08b7e7e84b8198f5e4c278d15,
     type: 3}
   optTree: {fileID: 3633747197846852975, guid: 18334634a3af18c44ac6477a1d61243d, type: 3}
-  wallClone: {fileID: 0}
   exitdoor: {fileID: 0}
+  startSpawn: {fileID: 0}
+  organFloor: {fileID: 0}
+  phage: {fileID: 2821164257730604888, guid: c300ea7db3dec874e90d2dc57ecb2e0e, type: 3}
+  start: 0
   bloodstream: {fileID: 0}
   walls: []
   trees: []
+  viruses: []
   doorAnim: {fileID: 0}
-  counter: 10
+  score: 0
+  vCount: 0
+  level: 0
   doorOpen: 0
+  size: 100
 --- !u!1001 &7084118106643941189
 PrefabInstance:
   m_ObjectHideFlags: 0
