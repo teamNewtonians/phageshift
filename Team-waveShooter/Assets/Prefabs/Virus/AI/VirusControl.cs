@@ -7,9 +7,11 @@ public class VirusControl : MonoBehaviour
 {
   public Transform chaseTarget;
   public NavMeshAgent navMeshAgent;
+  public bool isDead;
 
   void Start()
   {
+    isDead = false;
     chaseTarget = GameObject.FindWithTag("Player").transform;
   }
 
@@ -17,5 +19,11 @@ public class VirusControl : MonoBehaviour
   {
     navMeshAgent.destination = chaseTarget.position;
     navMeshAgent.Resume();
+  }
+
+  void OnTriggerEnter(Collider other)
+  {
+    if(other.tag == "Projectile")
+      isDead = true;
   }
 }
