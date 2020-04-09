@@ -438,7 +438,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 99912192612901097, guid: ad07046545763b546aa30b296a4db321, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ad07046545763b546aa30b296a4db321, type: 3}
 --- !u!1001 &1933801345
 PrefabInstance:
@@ -506,6 +507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947096828366936391, guid: 8ef90dd9f0c48634b9a9f1c4b2f1d399,
+        type: 3}
+      propertyPath: m_TagString
+      value: virus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef90dd9f0c48634b9a9f1c4b2f1d399, type: 3}
