@@ -2,10 +2,12 @@
 #### CPSC6830 - Game Programming Final Project - Phage Shift game.
 #### Members: Benjamin Warner, Derek Andrews, Hayden Lewis
 
+[Back to main page](https://teamnewtonian.github.io/phageshift/)
+
 ### Star Blog - Date April 6th 2020...
 So far we've split up and are working on our individual pieces, pushing to git as we go.  We each have a test scene that we are working on, but contructing them primarily from prefabs so that a game manager script will handle the majority of the scene contruction in the end.
 
-Hayden has a solid a chaser AI for the virus with a nice navmesh, Derek has a neat walker algorithm for the Phage and a shooter basis, and Ben has made a preliminary playfield generator with some menus.
+Hayden has a solid chaser AI for the virus with a nice navmesh, Derek has a neat walker algorithm for the Phage and a shooter basis, and Ben has made a preliminary playfield generator with some menus.
 
 ...
 ### Star Blog - Date April 13th 2020...
