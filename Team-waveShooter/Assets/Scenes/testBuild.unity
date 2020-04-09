@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5665832, g: 0.16823745, b: 0.17674431, a: 1}
+  m_IndirectSpecularColor: {r: 0.5665833, g: 0.16823748, b: 0.17674431, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menus
       objectReference: {fileID: 0}
+    - target: {fileID: 5193437217238666455, guid: 1fdcc9365f02b5247b4713cc87d80afd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fdcc9365f02b5247b4713cc87d80afd, type: 3}
 --- !u!1001 &407687947
@@ -247,6 +252,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 197202439031748981, guid: c2f1d4bed20d8d64c8073d18494f98cd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 197202439350067642, guid: c2f1d4bed20d8d64c8073d18494f98cd,
         type: 3}
       propertyPath: m_IsTrigger
