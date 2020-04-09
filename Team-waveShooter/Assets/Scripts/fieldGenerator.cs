@@ -50,6 +50,7 @@ public class fieldGenerator : MonoBehaviour
 
         //phage = GameObject.Find("Assets/derek/Phage/phageNew");
         playerPhage = Instantiate(phage, startSpawn.transform.position, phage.transform.rotation);
+        GameObject.Find("Main Camera").GetComponent<cameraScript>().player = playerPhage;
 
         fieldMaker();
     }

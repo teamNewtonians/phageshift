@@ -196,7 +196,8 @@ MonoBehaviour:
   exitdoor: {fileID: 0}
   startSpawn: {fileID: 0}
   organFloor: {fileID: 0}
-  phage: {fileID: 2821164257730604888, guid: c300ea7db3dec874e90d2dc57ecb2e0e, type: 3}
+  phage: {fileID: 9103858773643820666, guid: 66f35c4767204c446ac75320b8d8fde8, type: 3}
+  playerPhage: {fileID: 0}
   start: 0
   bloodstream: {fileID: 0}
   walls: []
@@ -204,6 +205,7 @@ MonoBehaviour:
   viruses: []
   doorAnim: {fileID: 0}
   score: 0
+  totScore: 0
   vCount: 0
   level: 0
   doorOpen: 0
