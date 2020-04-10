@@ -61,19 +61,23 @@ public class fieldGenerator : MonoBehaviour
     void Update()
     {
         start = GameObject.Find("Menus").GetComponent<menuMaker>().start;
-        
+
+        for (int i = 0; i < viruses.Count; i++)
+        {
+            if (viruses[i].GetComponent<VirusControl>().isDead)
+            {
+                Destroy(viruses[i]);
+                viruses.Remove(viruses[i]);
+                score += 1;
+            }
+        }
+
         if (score == vCount && !doorOpen)
         {
             doorOpen = true;
             doorAnim.SetBool("doorOpen", doorOpen);
             bloodstream.Play();
 
-            //if()
-            //{
-            //    level += 1;
-            //    totScore = score;
-            //    score = 0;
-            //}
         }
         if (score == 0 && doorOpen)
         {

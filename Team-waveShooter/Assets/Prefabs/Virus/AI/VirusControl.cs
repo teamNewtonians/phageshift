@@ -23,11 +23,12 @@ public class VirusControl : MonoBehaviour
 
   void OnTriggerEnter(Collider other)
   {
-        Debug.Log("hit");
         if (other.tag == "Projectile") {
+            Debug.Log("hit");
             isDead = true;
             Destroy(other.gameObject);
-           
+            //Destroy(this.gameObject);
+            //GameObject.Find("playField").GetComponent<fieldGenerator>().score +=1;
         }
   }
 }

@@ -62,7 +62,7 @@ public class CreatureController : MonoBehaviour {
             GameObject.Find("playField").GetComponent<fieldGenerator>().totScore = GameObject.Find("playField").GetComponent<fieldGenerator>().score;
             GameObject.Find("playField").GetComponent<fieldGenerator>().score = 0;
         }
-        if (other.gameObject.tag == "hole" && GameObject.Find("playField").GetComponent<fieldGenerator>().score == GameObject.Find("playField").GetComponent<fieldGenerator>().vCount)
+        if (other.gameObject.tag == "virus")
         {
             health -= 5;
         }
