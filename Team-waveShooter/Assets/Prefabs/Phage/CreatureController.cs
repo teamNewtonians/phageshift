@@ -6,11 +6,15 @@ public class CreatureController : MonoBehaviour {
     public float moveInputFactor = 5f;
     public Vector3 velocity;
     public float walkSpeed = 2f;
-    public float sprintSpeed = 5f;
+    public float sprintSpeed = 8f;
     public float rotateInputFactor = 10f;
     public float rotationSpeed = 10f;
     public float averageRotationRadius = 3f;
     private float rSpeed = 0;
+    private GameObject cam;
+    private Vector3 forward;
+    private Vector3 sideways;
+    private Vector3 target;
     public int health = 100;
 
     public ProceduralLegPlacement[] legs;
@@ -21,16 +25,35 @@ public class CreatureController : MonoBehaviour {
     public float lastStep = 0;
 
     void Start () {
-
+        cam = GameObject.Find("Main Camera");
     }
 
     void Update () {
-
         float mSpeed = (Input.GetButton ("Fire3") ? sprintSpeed : walkSpeed);
-        velocity = Vector3.MoveTowards (velocity, new Vector3 (Input.GetAxis ("Horizontal"), 0f, Input.GetAxis ("Vertical")).normalized, Time.deltaTime * moveInputFactor);
         //rSpeed = Mathf.MoveTowards (rSpeed, Input.GetAxis ("Turn") * rotationSpeed, rotateInputFactor * Time.deltaTime);
-        transform.Rotate (0f, rSpeed * Time.deltaTime, 0f);
-        transform.position += velocity * mSpeed * Time.deltaTime;
+
+        forward = transform.position - cam.transform.position;
+        forward = new Vector3(forward.x,0f,forward.z).normalized;
+        sideways = -Vector3.Cross(forward, Vector3.up);
+
+        if(Input.GetAxis("Vertical") != 0)
+        {
+            target = forward * Input.GetAxis("Vertical");
+            velocity = Vector3.MoveTowards(velocity, target.normalized, Time.deltaTime * moveInputFactor);
+            transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
+            transform.position += velocity * mSpeed * Time.deltaTime;
+        }
+        if(Input.GetAxis("Horizontal") != 0)
+        {
+            target = sideways * Input.GetAxis("Horizontal");
+            velocity = Vector3.MoveTowards(velocity, target.normalized, Time.deltaTime * moveInputFactor);
+            transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
+            transform.position += velocity * mSpeed * Time.deltaTime;
+        }
+
+        //velocity = Vector3.MoveTowards(velocity, Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized, Time.deltaTime * moveInputFactor);
+        //transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
+        //transform.position += velocity * mSpeed * Time.deltaTime;
 
         if (dynamicGait) {
             timeBetweenSteps = maxTargetDistance / Mathf.Max (mSpeed * velocity.magnitude, Mathf.Abs (rSpeed * Mathf.Deg2Rad * averageRotationRadius));
@@ -60,7 +83,7 @@ public class CreatureController : MonoBehaviour {
         {
             GameObject.Find("playField").GetComponent<fieldGenerator>().level += 1;
             GameObject.Find("playField").GetComponent<fieldGenerator>().vCount = GameObject.Find("playField").GetComponent<fieldGenerator>().level * 10;
-            GameObject.Find("playField").GetComponent<fieldGenerator>().totScore = GameObject.Find("playField").GetComponent<fieldGenerator>().score;
+            GameObject.Find("playField").GetComponent<fieldGenerator>().totScore += GameObject.Find("playField").GetComponent<fieldGenerator>().score;
             GameObject.Find("playField").GetComponent<fieldGenerator>().score = 0;
         }
         if (other.gameObject.tag == "virus")

@@ -20,7 +20,7 @@ public class VirusControl : MonoBehaviour
   void Update()
   {
     navMeshAgent.destination = chaseTarget.position;
-    navMeshAgent.Resume();
+    navMeshAgent.isStopped = false;
     if(health <= 0)
       isDead = true;
 

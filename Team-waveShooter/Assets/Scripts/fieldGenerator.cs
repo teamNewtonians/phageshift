@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class fieldGenerator : MonoBehaviour
 {
-    int rndWall = 0;  //To wall or not to wall.
-    int rndTree = 0;
-    int rndYofs = 0;
-    int rndVir = 0;
+    private int rndWall = 0;  //To wall or not to wall.
+    private int rndTree = 0;
+    private int rndYofs = 0;
+    private int rndVir = 0;
 
     public GameObject cellWallZ;
     public GameObject cellWallX;
@@ -19,11 +19,10 @@ public class fieldGenerator : MonoBehaviour
     public GameObject organFloor;
     public GameObject phage;
     public GameObject playerPhage;
-    public bool start;
     public NavMeshSurface surface;
 
     public ParticleSystem bloodstream;
-    Vector3 clonePos;
+    private Vector3 clonePos;
     public List<GameObject> walls = new List<GameObject>();
     public List<GameObject> trees = new List<GameObject>();
     public List<GameObject> viruses = new List<GameObject>();
@@ -33,15 +32,23 @@ public class fieldGenerator : MonoBehaviour
     public int totScore;
     public int vCount;
     public int level;
-    public bool doorOpen = false;
     private int grid = 10;
     public int size = 100;
+
+    public bool start;
+    public bool doorOpen;
+    public bool resetField;
+    public bool restart;
 
     // Start is called before the first frame update
     void Start()
     {
         level = 1;
         vCount = level*10;
+
+        doorOpen = false;
+        resetField = false;
+        restart = false;
 
         exitdoor = GameObject.Find("exitdoor");
         startSpawn = GameObject.Find("startSpawn");
@@ -63,6 +70,16 @@ public class fieldGenerator : MonoBehaviour
     void Update()
     {
         start = GameObject.Find("Menus").GetComponent<menuMaker>().start;
+        restart = GameObject.Find("Menus").GetComponent<menuMaker>().restart;
+
+        if (start || restart)
+        {
+            playerPhage.GetComponent<CreatureController>().health = 100;
+            score = 0;
+            totScore = 0;
+            level = 1;
+            vCount = level * 10;
+        }
 
         for (int i = 0; i < viruses.Count; i++)
         {
@@ -81,13 +98,15 @@ public class fieldGenerator : MonoBehaviour
             bloodstream.Play();
 
         }
-        if (score == 0 && doorOpen)
+        if ((score == 0 && doorOpen)||resetField||restart)
         {
-            playerPhage.transform.position = startSpawn.transform.position;
             fieldMaker();
             doorOpen = false;
             doorAnim.SetBool("doorOpen", doorOpen);
             bloodstream.Stop();
+            resetField = false;
+            GameObject.Find("Menus").GetComponent<menuMaker>().restart = false;
+            GameObject.Find("Menus").GetComponent<menuMaker>().gameOver = false;
         }
     }
 
@@ -108,14 +127,38 @@ public class fieldGenerator : MonoBehaviour
         {
             Destroy(trees[i]);
         }
-        for (int i = 0; i < viruses.Count; i++)
-        {
-            Destroy(viruses[i]);
-        }
         walls = new List<GameObject>(0);
         trees = new List<GameObject>(0);
-        viruses = new List<GameObject>(0);
 
+        //Do this only when not doing the reset field operation
+        if (!resetField)
+        {
+            //Destroy old viruses
+            for (int i = 0; i < viruses.Count; i++)
+            {
+                Destroy(viruses[i]);
+            }
+            viruses = new List<GameObject>(0);
+
+            //Make new viruses
+            while (viruses.Count < vCount)
+            {
+                for (int x = (-size / 2); x <= (size / 2) - grid; x += grid)
+                {
+                    for (int z = (-size / 2) + (grid / 2); z <= (size / 2) - (grid); z += grid)
+                    {
+                        rndVir = Random.Range(0, 3);
+                        if ((rndVir == 1) && (viruses.Count < vCount))
+                        {
+                            clonePos = new Vector3(x + 5, 0, z);
+                            viruses.Add(Instantiate(virus, clonePos, virus.transform.rotation));
+                        }
+                    }
+                }
+            }
+        }
+        
+        //Used to resize NavMesh, but does something strange.
         //surface.BuildNavMesh();
 
         //Make new bits.
@@ -124,7 +167,6 @@ public class fieldGenerator : MonoBehaviour
             for (int z = (-size / 2) + (grid / 2); z <= (size / 2)- (grid / 2); z += grid)
             {
                 rndWall = Random.Range(0, 3);
-                rndVir = Random.Range(0, 3);
                 rndTree = Random.Range(0, 3);
                 rndYofs = Random.Range(0, 3);
                 if ((rndWall == 1 || x == -size / 2 || x == size / 2) && !(x == (-size / 2) + grid || x == (size / 2) - grid))
@@ -137,11 +179,6 @@ public class fieldGenerator : MonoBehaviour
                     clonePos = new Vector3(x, rndYofs - 1, z + 4);
                     optTree.transform.Rotate((float)0, (float)rndYofs * 45, (float)0, Space.Self);
                     trees.Add(Instantiate(optTree, clonePos, optTree.transform.rotation));
-                }
-                if ((rndVir == 1) && (viruses.Count < vCount))
-                {
-                    clonePos = new Vector3(x + 5, 0, z);
-                    viruses.Add(Instantiate(virus, clonePos, virus.transform.rotation));
                 }
             }
 
