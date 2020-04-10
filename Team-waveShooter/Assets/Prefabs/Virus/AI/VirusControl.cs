@@ -8,10 +8,12 @@ public class VirusControl : MonoBehaviour
   public Transform chaseTarget;
   public NavMeshAgent navMeshAgent;
   public bool isDead;
+  public bool health;
 
   void Start()
   {
     isDead = false;
+    health = 5;
     chaseTarget = GameObject.FindWithTag("Player").transform;
   }
 
@@ -19,13 +21,16 @@ public class VirusControl : MonoBehaviour
   {
     navMeshAgent.destination = chaseTarget.position;
     navMeshAgent.Resume();
+    if(health <= 0)
+      isDead = true;
+
   }
 
   void OnTriggerEnter(Collider other)
   {
         if (other.tag == "Projectile") {
             Debug.Log("hit");
-            isDead = true;
+            health--;
             Destroy(other.gameObject);
             //Destroy(this.gameObject);
             //GameObject.Find("playField").GetComponent<fieldGenerator>().score +=1;
