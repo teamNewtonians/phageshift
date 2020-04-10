@@ -9,7 +9,7 @@ public class VirusControl : MonoBehaviour
   public NavMeshAgent navMeshAgent;
   public bool isDead;
 
-  private int health;
+  public int health;
 
   void Start()
   {
@@ -22,7 +22,7 @@ public class VirusControl : MonoBehaviour
   {
     navMeshAgent.destination = chaseTarget.position;
     navMeshAgent.Resume();
-    if(health == 0)
+    if(health <= 0)
     {
       isDead = true;
     }
