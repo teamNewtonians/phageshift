@@ -8,7 +8,7 @@ public class VirusControl : MonoBehaviour
   public Transform chaseTarget;
   public NavMeshAgent navMeshAgent;
   public bool isDead;
-  public bool health;
+  public int health;
 
   void Start()
   {
@@ -32,8 +32,6 @@ public class VirusControl : MonoBehaviour
             Debug.Log("hit");
             health--;
             Destroy(other.gameObject);
-            //Destroy(this.gameObject);
-            //GameObject.Find("playField").GetComponent<fieldGenerator>().score +=1;
         }
   }
 }
