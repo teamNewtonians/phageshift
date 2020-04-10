@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class fieldGenerator : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class fieldGenerator : MonoBehaviour
     public GameObject phage;
     public GameObject playerPhage;
     public bool start;
+    public NavMeshSurface surface;
 
     public ParticleSystem bloodstream;
     Vector3 clonePos;
@@ -91,12 +93,13 @@ public class fieldGenerator : MonoBehaviour
 
     void fieldMaker()
     {
-        playerPhage.transform.position = startSpawn.transform.position;
+        playerPhage.GetComponent<NavMeshAgent>().Warp(startSpawn.transform.position);
 
         exitdoor.transform.position = new Vector3((-size / 2) + grid, 1, (-size / 2) + grid);
         startSpawn.transform.position = new Vector3((size / 2) - grid, 2, (size / 2) - grid);
         organFloor.transform.localScale = new Vector3(size, 20, size);
-
+        
+        //Destroy old bits.
         for (int i = 0; i< walls.Count; i++)
         {
             Destroy(walls[i]);
@@ -112,12 +115,16 @@ public class fieldGenerator : MonoBehaviour
         walls = new List<GameObject>(0);
         trees = new List<GameObject>(0);
         viruses = new List<GameObject>(0);
+
+        //surface.BuildNavMesh();
+
+        //Make new bits.
         for (int x = (-size / 2); x <= (size / 2); x += grid)
         {
             for (int z = (-size / 2) + (grid / 2); z <= (size / 2)- (grid / 2); z += grid)
             {
-                rndWall = Random.Range(0, 2);
-                rndVir = Random.Range(0, 2);
+                rndWall = Random.Range(0, 3);
+                rndVir = Random.Range(0, 3);
                 rndTree = Random.Range(0, 3);
                 rndYofs = Random.Range(0, 3);
                 if ((rndWall == 1 || x == -size / 2 || x == size / 2) && !(x == (-size / 2) + grid || x == (size / 2) - grid))
@@ -133,7 +140,7 @@ public class fieldGenerator : MonoBehaviour
                 }
                 if ((rndVir == 1) && (viruses.Count < vCount))
                 {
-                    clonePos = new Vector3(x + 5, 0, z + 5);
+                    clonePos = new Vector3(x + 5, 0, z);
                     viruses.Add(Instantiate(virus, clonePos, virus.transform.rotation));
                 }
             }
@@ -143,7 +150,7 @@ public class fieldGenerator : MonoBehaviour
         {
             for (int x = (-size / 2)+(grid/2); x <= (size / 2)- (grid / 2); x += grid)
             {
-                rndWall = Random.Range(0, 2);
+                rndWall = Random.Range(0, 3);
                 rndYofs = Random.Range(0, 3);
                 if ((rndWall == 1 || z == -size / 2 || z == size / 2) && !(z == (-size / 2) + grid || z == (size / 2) - grid))
                 {

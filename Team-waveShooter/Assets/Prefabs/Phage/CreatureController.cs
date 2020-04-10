@@ -59,6 +59,7 @@ public class CreatureController : MonoBehaviour {
         if (other.gameObject.tag == "hole" && GameObject.Find("playField").GetComponent<fieldGenerator>().score == GameObject.Find("playField").GetComponent<fieldGenerator>().vCount)
         {
             GameObject.Find("playField").GetComponent<fieldGenerator>().level += 1;
+            GameObject.Find("playField").GetComponent<fieldGenerator>().vCount = GameObject.Find("playField").GetComponent<fieldGenerator>().level * 10;
             GameObject.Find("playField").GetComponent<fieldGenerator>().totScore = GameObject.Find("playField").GetComponent<fieldGenerator>().score;
             GameObject.Find("playField").GetComponent<fieldGenerator>().score = 0;
         }
