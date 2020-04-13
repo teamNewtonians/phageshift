@@ -20,9 +20,10 @@ public class VirusControl : MonoBehaviour
     chaseTarget = GameObject.FindWithTag("Player").transform;
   }
 
-  void FixedUpdate()
+  void Update()
   {
     navMeshAgent.destination = chaseTarget.position;
+    navMeshAgent.isStopped = false;
     if(health <= 0)
     {
       anim.SetTrigger("playDeath");
