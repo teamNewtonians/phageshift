@@ -27,7 +27,7 @@ public class VirusControl : MonoBehaviour
     if(health <= 0)
     {
       anim.Play("deathAnim");
-      if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+      if(!anim.GetCurrentAnimatorStateInfo(0).IsName("deathAnim"))
         isDead = true;
     }
 
