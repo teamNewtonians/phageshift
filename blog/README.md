@@ -13,8 +13,8 @@ Hayden has a solid chaser AI for the virus with a nice navmesh, Derek has a neat
 ### Star Blog - Date April 13th 2020...
 The game is at a pretty good starting point and is generally playable, now we just need to polish various features to make the game more appealing.  Moving forward, here is what we plan to focus on now:
 
-Ben -- Add scoreboard logic and clean up various menu functionalities. Improve wall quality.
-Derek -- Power ups.
+Ben -- Add scoreboard logic and clean up various menu functionalities. Improve wall quality.\n
+Derek -- Power ups.\n
 Hayden -- Various animations.
 
 ...
