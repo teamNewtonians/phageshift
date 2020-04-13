@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEditor.Animations;
 
 public class VirusControl : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class VirusControl : MonoBehaviour
   public NavMeshAgent navMeshAgent;
   public bool isDead;
   public int health;
+  public Animator anim;
 
   void Start()
   {
+    anim = GetComponent<Animator>();
     isDead = false;
     health = 5;
     chaseTarget = GameObject.FindWithTag("Player").transform;
@@ -22,7 +25,11 @@ public class VirusControl : MonoBehaviour
     navMeshAgent.destination = chaseTarget.position;
     navMeshAgent.isStopped = false;
     if(health <= 0)
-      isDead = true;
+    {
+      anim.Play("deathAnim");
+      if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+        isDead = true;
+    }
 
   }
 
