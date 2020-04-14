@@ -11,6 +11,7 @@ public class VirusControl : MonoBehaviour
   public bool isDead;
   public int health;
   public Animator anim;
+    public float counter;
 
   void Start()
   {
@@ -26,9 +27,13 @@ public class VirusControl : MonoBehaviour
     navMeshAgent.isStopped = false;
     if(health <= 0)
     {
-      anim.SetTrigger("playDeath");
-      if(anim.GetCurrentAnimatorStateInfo(0).IsName("DEAD"))
-        isDead = true;
+            counter += Time.deltaTime;
+            anim.SetTrigger("playDeath");
+            if(counter >= 1f)
+            {
+
+                isDead = true;
+            }
     }
 
   }
