@@ -35,7 +35,7 @@ public class fieldGenerator : MonoBehaviour
     private int grid = 10;
     public int size = 100;
 
-    public bool start;
+    public bool seeStart;
     public bool doorOpen;
     public bool resetField;
     public bool restart;
@@ -69,11 +69,12 @@ public class fieldGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        start = GameObject.Find("Menus").GetComponent<menuMaker>().start;
+        seeStart = GameObject.Find("Menus").GetComponent<menuMaker>().seeStart;
         restart = GameObject.Find("Menus").GetComponent<menuMaker>().restart;
 
-        if (start || restart)
+        if (seeStart || restart)
         {
+            playerPhage.GetComponent<NavMeshAgent>().Warp(startSpawn.transform.position);
             playerPhage.GetComponent<CreatureController>().health = 100;
             score = 0;
             totScore = 0;
@@ -110,6 +111,33 @@ public class fieldGenerator : MonoBehaviour
         }
     }
 
+    void viralMaker()
+    {
+        //Destroy old viruses
+        for (int i = 0; i < viruses.Count; i++)
+        {
+            Destroy(viruses[i]);
+        }
+        viruses = new List<GameObject>(0);
+
+        //Make new viruses
+        while (viruses.Count < vCount)
+        {
+            for (int x = (-size / 2); x <= (size / 2) - grid; x += grid)
+            {
+                for (int z = (-size / 2) + (grid / 2); z <= (size / 2) - (grid); z += grid)
+                {
+                    rndVir = Random.Range(0, 3);
+                    if ((rndVir == 1) && (viruses.Count < vCount))
+                    {
+                        clonePos = new Vector3(x + 5, 0, z);
+                        viruses.Add(Instantiate(virus, clonePos, virus.transform.rotation));
+                    }
+                }
+            }
+        }
+    }
+
     void fieldMaker()
     {
         playerPhage.GetComponent<NavMeshAgent>().Warp(startSpawn.transform.position);
@@ -129,35 +157,11 @@ public class fieldGenerator : MonoBehaviour
         }
         walls = new List<GameObject>(0);
         trees = new List<GameObject>(0);
-
         //Do this only when not doing the reset field operation
         if (!resetField)
         {
-            //Destroy old viruses
-            for (int i = 0; i < viruses.Count; i++)
-            {
-                Destroy(viruses[i]);
-            }
-            viruses = new List<GameObject>(0);
-
-            //Make new viruses
-            while (viruses.Count < vCount)
-            {
-                for (int x = (-size / 2); x <= (size / 2) - grid; x += grid)
-                {
-                    for (int z = (-size / 2) + (grid / 2); z <= (size / 2) - (grid); z += grid)
-                    {
-                        rndVir = Random.Range(0, 3);
-                        if ((rndVir == 1) && (viruses.Count < vCount))
-                        {
-                            clonePos = new Vector3(x + 5, 0, z);
-                            viruses.Add(Instantiate(virus, clonePos, virus.transform.rotation));
-                        }
-                    }
-                }
-            }
+            viralMaker();
         }
-        
         //Used to resize NavMesh, but does something strange.
         //surface.BuildNavMesh();
 

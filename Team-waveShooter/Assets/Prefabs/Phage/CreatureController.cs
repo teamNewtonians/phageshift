@@ -32,28 +32,16 @@ public class CreatureController : MonoBehaviour {
         float mSpeed = (Input.GetButton ("Fire3") ? sprintSpeed : walkSpeed);
         //rSpeed = Mathf.MoveTowards (rSpeed, Input.GetAxis ("Turn") * rotationSpeed, rotateInputFactor * Time.deltaTime);
 
+        //Forward from camera to player, sideways to... the side.
         forward = transform.position - cam.transform.position;
         forward = new Vector3(forward.x,0f,forward.z).normalized;
         sideways = -Vector3.Cross(forward, Vector3.up);
 
-        if(Input.GetAxis("Vertical") != 0)
-        {
-            target = forward * Input.GetAxis("Vertical");
-            velocity = Vector3.MoveTowards(velocity, target.normalized, Time.deltaTime * moveInputFactor);
-            transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
-            transform.position += velocity * mSpeed * Time.deltaTime;
-        }
-        if(Input.GetAxis("Horizontal") != 0)
-        {
-            target = sideways * Input.GetAxis("Horizontal");
-            velocity = Vector3.MoveTowards(velocity, target.normalized, Time.deltaTime * moveInputFactor);
-            transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
-            transform.position += velocity * mSpeed * Time.deltaTime;
-        }
-
-        //velocity = Vector3.MoveTowards(velocity, Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized, Time.deltaTime * moveInputFactor);
-        //transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
-        //transform.position += velocity * mSpeed * Time.deltaTime;
+        //Velcotiy vector "moves towards" the target.
+        target = (sideways* Input.GetAxis("Horizontal")) + (forward * Input.GetAxis("Vertical"));
+        velocity = Vector3.MoveTowards(velocity, target.normalized, Time.deltaTime * moveInputFactor);
+        transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
+        transform.position += velocity * mSpeed * Time.deltaTime;
 
         if (dynamicGait) {
             timeBetweenSteps = maxTargetDistance / Mathf.Max (mSpeed * velocity.magnitude, Mathf.Abs (rSpeed * Mathf.Deg2Rad * averageRotationRadius));
@@ -89,6 +77,7 @@ public class CreatureController : MonoBehaviour {
         if (other.gameObject.tag == "virus")
         {
             health -= 5;
+
         }
     }   
 

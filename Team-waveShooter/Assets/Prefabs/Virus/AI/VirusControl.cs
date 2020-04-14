@@ -36,7 +36,6 @@ public class VirusControl : MonoBehaviour
   void OnTriggerEnter(Collider other)
   {
         if (other.tag == "Projectile") {
-            Debug.Log("hit");
             health--;
             Destroy(other.gameObject);
         }
