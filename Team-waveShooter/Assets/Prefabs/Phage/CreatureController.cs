@@ -16,7 +16,8 @@ public class CreatureController : MonoBehaviour {
     private Vector3 sideways;
     private Vector3 target;
     public int health = 100;
-
+    private bool invinsible= false;
+    private float temp;
     public ProceduralLegPlacement[] legs;
     private int index;
     public bool dynamicGait = false;
@@ -26,6 +27,7 @@ public class CreatureController : MonoBehaviour {
 
     void Start () {
         cam = GameObject.Find("Main Camera");
+        temp = walkSpeed;
     }
 
     void Update () {
@@ -76,10 +78,58 @@ public class CreatureController : MonoBehaviour {
         }
         if (other.gameObject.tag == "virus")
         {
-            health -= 5;
+            if(!invinsible)
+             health -= 5;
 
         }
-    }   
+
+        if (other.gameObject.tag == "speedPowerUp") {
+            
+            walkSpeed = 14;
+            StartCoroutine(PowerUp(5f));
+            Debug.Log("collected");
+            other.gameObject.SetActive(false);
+            
+
+        }
+
+
+        if (other.gameObject.tag == "healthPowerUp") {
+
+            health = health + 20;
+            other.gameObject.SetActive(false);
+
+        }
+
+        if (other.gameObject.tag == "invinsiblePowerUp") {
+
+            invinsible = true;
+            StartCoroutine(PowerUp2(5f));
+            other.gameObject.SetActive(false);
+
+        }
+    }
+
+    IEnumerator PowerUp(float duration) {
+        Debug.Log("Power up started");
+
+       
+        yield return new WaitForSeconds(duration);
+        walkSpeed = temp;
+
+        Debug.Log("Power up ended");
+    }
+
+
+    IEnumerator PowerUp2(float duration) {
+        Debug.Log("Power up started");
+
+
+        yield return new WaitForSeconds(duration);
+        invinsible = false;
+
+        Debug.Log("Power up ended");
+    }
 
     public void OnDrawGizmosSelected () {
         Gizmos.DrawWireSphere (transform.position, averageRotationRadius);

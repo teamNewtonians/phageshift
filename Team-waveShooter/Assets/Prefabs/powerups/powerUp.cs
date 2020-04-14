@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class powerUpSpeed : MonoBehaviour
+public class powerUp : MonoBehaviour
 {
     public Vector3 RotateAmount;
     // Start is called before the first frame update

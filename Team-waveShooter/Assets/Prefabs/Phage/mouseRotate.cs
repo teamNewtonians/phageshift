@@ -6,6 +6,8 @@ public class mouseRotate : MonoBehaviour {
     public GameObject projectile;
     public GameObject shootFrom;
     public GameObject reticle;
+
+    private bool pw=false;
     // Start is called before the first frame update
     void Start() {
         Cursor.visible = false;
@@ -30,6 +32,31 @@ public class mouseRotate : MonoBehaviour {
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse); 
 
         }
+
+        if (pw) {
+            GameObject bullet = Instantiate(projectile, shootFrom.transform.position, Quaternion.identity) as GameObject;
+            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("entered" + other.gameObject);
+        if (other.tag == "rapidPowerUp") {
+            StartCoroutine(PowerUp(3f));
+            other.gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator PowerUp(float duration) {
+        Debug.Log("Power up started");
+
+        pw = true;
+        yield return new WaitForSeconds(duration);
+        pw = false;
+
+        Debug.Log("Power up ended");
     }
 
 }
+
+

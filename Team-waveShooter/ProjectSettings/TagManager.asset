@@ -10,6 +10,9 @@ TagManager:
   - Projectile
   - hole
   - speedPowerUp
+  - rapidPowerUp
+  - healthPowerUp
+  - invinsiblePowerUp
   layers:
   - Default
   - TransparentFX
