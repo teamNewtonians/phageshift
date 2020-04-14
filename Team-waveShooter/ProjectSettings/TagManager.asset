@@ -9,6 +9,7 @@ TagManager:
   - virus
   - Projectile
   - hole
+  - speedPowerUp
   layers:
   - Default
   - TransparentFX
