@@ -66,7 +66,7 @@ public class menuMaker : MonoBehaviour
 
         scoreNtimer = GameObject.Find("scoreNtimer").GetComponent<Text>();
         levelText = GameObject.Find("levelText").GetComponent<Text>();
-        scoreBoard = GameObject.Find("Scrollable/Text").GetComponent<Text>();
+        scoreBoard = GameObject.Find("ScoresPanel/Text").GetComponent<Text>();
 
         //Button animators
         startButton = GameObject.Find("StartMenu/StartButton").GetComponent<Animator>();
@@ -252,12 +252,17 @@ public class menuMaker : MonoBehaviour
             maxIndex = 2;
 
             //Display scores...
-            scoreBoard.text = "Phage:     Score:     Time:    Resets:\n";
+            scoreBoard.text = "| Phage:   | Score:   | Time:    | Resets:  |\n--------------------------------------------------\n";
             for (int i = 0; i < 50; i++)
             {
                 if (PlayerPrefs.HasKey(i + "HScore"))
                 {
-                    scoreBoard.text += PlayerPrefs.GetString(i + "HScoreName") +"   "+ PlayerPrefs.GetInt(i + "HScore") + "   " + PlayerPrefs.GetInt(i + "HTime") + "   " + PlayerPrefs.GetInt(i + "HResets") + "\n";
+                    if(PlayerPrefs.GetInt(i + "HScore") > 0)
+                    {
+                        scoreBoard.text += string.Format("| {0,10} | {1,10} | {2,10} | {3,10} |", PlayerPrefs.GetString(i + "HScoreName"),PlayerPrefs.GetInt(i + "HScore"), PlayerPrefs.GetInt(i + "HTime"), PlayerPrefs.GetInt(i + "HResets"));
+                        scoreBoard.text += "\n --------------------------------------------------\n";
+                    }
+                    
                 }
             }
 
