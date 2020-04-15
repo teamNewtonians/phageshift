@@ -1036,7 +1036,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 0}
   scoresMenu: {fileID: 0}
   playerPhage: {fileID: 0}
-  inputField: {fileID: 2825527024352732715}
+  inputField: {fileID: 0}
   scoreNtimer: {fileID: 0}
   levelText: {fileID: 0}
   scoreBoard: {fileID: 0}
