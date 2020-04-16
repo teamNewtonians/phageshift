@@ -120,8 +120,7 @@ public class menuMaker : MonoBehaviour
 
         if (hud)
         {
-            scoreNtimer.text = "Health: " + playerPhage.GetComponent<CreatureController>().health + 
-                " Timer: " + (int)timer + " Score: " + GameObject.Find("playField").GetComponent<fieldGenerator>().score + 
+            scoreNtimer.text = " Timer: " + (int)timer + " Score: " + GameObject.Find("playField").GetComponent<fieldGenerator>().score + 
                 " / " + GameObject.Find("playField").GetComponent<fieldGenerator>().vCount  + 
                 " Total: " + GameObject.Find("playField").GetComponent<fieldGenerator>().totScore;
             levelText.text = "Level: " + GameObject.Find("playField").GetComponent<fieldGenerator>().level;

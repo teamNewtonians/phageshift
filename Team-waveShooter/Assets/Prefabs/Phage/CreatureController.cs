@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreatureController : MonoBehaviour {
     public float moveInputFactor = 5f;
     public Vector3 velocity;
     public float walkSpeed = 2f;
-    public float sprintSpeed = 8f;
+    public float sprintSpeed = 10f;
     public float rotateInputFactor = 10f;
     public float rotationSpeed = 10f;
     public float averageRotationRadius = 3f;
@@ -25,12 +26,22 @@ public class CreatureController : MonoBehaviour {
     [Tooltip ("Used if dynamicGait is true to calculate timeBetweenSteps")] public float maxTargetDistance = 1f;
     public float lastStep = 0;
 
+    public RectTransform healthRect;
+    public Text healthText;
+
     void Start () {
         cam = GameObject.Find("Main Camera");
         temp = walkSpeed;
+
+        healthRect = GameObject.Find("HUD/Health/healthVal").GetComponent<RectTransform>();
+        healthText = GameObject.Find("HUD/Health/healthText").GetComponent<Text>();
     }
 
     void Update () {
+
+        healthRect.sizeDelta = new Vector2(health, 25);
+        healthText.text = "Health: " + health;
+
         float mSpeed = (Input.GetButton ("Fire3") ? sprintSpeed : walkSpeed);
         //rSpeed = Mathf.MoveTowards (rSpeed, Input.GetAxis ("Turn") * rotationSpeed, rotateInputFactor * Time.deltaTime);
 
@@ -42,7 +53,7 @@ public class CreatureController : MonoBehaviour {
         //Velcotiy vector "moves towards" the target.
         target = (sideways* Input.GetAxis("Horizontal")) + (forward * Input.GetAxis("Vertical"));
         velocity = Vector3.MoveTowards(velocity, target.normalized, Time.deltaTime * moveInputFactor);
-        transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
+        //transform.Rotate(0f, rSpeed * Time.deltaTime, 0f);
         transform.position += velocity * mSpeed * Time.deltaTime;
 
         if (dynamicGait) {
