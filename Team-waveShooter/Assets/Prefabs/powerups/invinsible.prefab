@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4082702343902799259}
-  - component: {fileID: 4082702343902799236}
   - component: {fileID: 4082702343902799237}
   - component: {fileID: 4082702343902799238}
   - component: {fileID: 4082702343902799239}
   - component: {fileID: 4082702343902799232}
+  - component: {fileID: 5734179857489776186}
   m_Layer: 0
   m_Name: invinsible
   m_TagString: invinsiblePowerUp
@@ -30,19 +30,11 @@ Transform:
   m_GameObject: {fileID: 4082702343902799233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25.015678, y: 2.3, z: 37.72418}
-  m_LocalScale: {x: 1.9726, y: 1.9726, z: 1.9726}
+  m_LocalScale: {x: 1.9726, y: 1.9726, z: 0.46770346}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4082702343902799236
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4082702343902799233}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4082702343902799237
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -52,7 +44,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4082702343902799233}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -61,7 +53,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 5561349426305759274, guid: 4edeab330b455da4a84a7234b695589b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,3 +116,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!33 &5734179857489776186
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4082702343902799233}
+  m_Mesh: {fileID: 4068373912626513877, guid: ef4fe57d1c2e98a4ab4c5cddaed73100, type: 3}

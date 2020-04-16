@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6172251570538801423}
   - component: {fileID: 6172251570538801416}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: speed
   m_TagString: speedPowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6172251570538801417}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 3369316746193770658, guid: 37eac2383016c8c44a01d3f751730338, type: 3}
 --- !u!23 &6172251570538801421
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6f8ae41213c05994c95578c4121e8ce9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
