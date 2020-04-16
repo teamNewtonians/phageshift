@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8488917981846673047}
   - component: {fileID: 8488917981846673040}
   - component: {fileID: 2046188054038319507}
+  - component: {fileID: 2708087647900192756}
   m_Layer: 0
   m_Name: health
   m_TagString: healthPowerUp
@@ -124,3 +125,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8488917981846673041}
   m_Mesh: {fileID: 4068373912626513877, guid: d4e771a7c1070da43b92a6f82865178d, type: 3}
+--- !u!95 &2708087647900192756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488917981846673041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d5a9d5fbbbb2e04a9cad79e9eb23a11, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

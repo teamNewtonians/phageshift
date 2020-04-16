@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6172251570538801423}
   - component: {fileID: 6172251570538801416}
   - component: {fileID: -6079255151675865536}
+  - component: {fileID: 4605918108539709114}
   m_Layer: 0
   m_Name: speed
   m_TagString: speedPowerUp
@@ -124,3 +125,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6172251570538801417}
   m_Mesh: {fileID: 3369316746193770658, guid: cd2ce15ae6d27e64b904f4c7d20e8208, type: 3}
+--- !u!95 &4605918108539709114
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172251570538801417}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d5a9d5fbbbb2e04a9cad79e9eb23a11, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
