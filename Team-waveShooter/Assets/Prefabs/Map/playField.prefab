@@ -245,8 +245,13 @@ MonoBehaviour:
   organFloor: {fileID: 0}
   phage: {fileID: 9103858773643820666, guid: 66f35c4767204c446ac75320b8d8fde8, type: 3}
   playerPhage: {fileID: 0}
-  start: 0
   surface: {fileID: 7145340113936014537}
+  healthUp: {fileID: 8488917981846673041, guid: 0ecef1d9fda77a04fbfe90f9328f360e,
+    type: 3}
+  invinsibleUp: {fileID: 4082702343902799233, guid: cb163df4436e17b45932e92daf193098,
+    type: 3}
+  rapidUp: {fileID: 6475103807395397031, guid: c8c95df4b3843cc49a21949abd95e10b, type: 3}
+  speedUp: {fileID: 6172251570538801417, guid: 39e1f2ca244922042813683cc7ab7808, type: 3}
   bloodstream: {fileID: 0}
   walls: []
   trees: []
@@ -256,8 +261,11 @@ MonoBehaviour:
   totScore: 0
   vCount: 0
   level: 0
-  doorOpen: 0
   size: 100
+  seeStart: 0
+  doorOpen: 0
+  resetField: 0
+  restart: 0
 --- !u!1001 &7084118106643941189
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -89,8 +89,10 @@ public class CreatureController : MonoBehaviour {
         }
         if (other.gameObject.tag == "virus")
         {
-            if(!invinsible)
-             health -= 5;
+            if (!invinsible)
+            {
+                health -= 5;
+            }
 
         }
 
@@ -100,14 +102,13 @@ public class CreatureController : MonoBehaviour {
             StartCoroutine(PowerUp(5f));
             Debug.Log("collected");
             other.gameObject.SetActive(false);
-            
 
         }
 
 
         if (other.gameObject.tag == "healthPowerUp") {
 
-            health = health + 20;
+            health += 20;
             other.gameObject.SetActive(false);
 
         }

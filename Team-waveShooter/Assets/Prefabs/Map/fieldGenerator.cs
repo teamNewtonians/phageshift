@@ -9,6 +9,8 @@ public class fieldGenerator : MonoBehaviour
     private int rndTree = 0;
     private int rndYofs = 0;
     private int rndVir = 0;
+    private int rndPup = 0;
+    private int rndPupPick = 0;
 
     public GameObject cellWallZ;
     public GameObject cellWallX;
@@ -21,16 +23,24 @@ public class fieldGenerator : MonoBehaviour
     public GameObject playerPhage;
     public NavMeshSurface surface;
 
+    //Pickup objects
+    public GameObject healthUp;
+    public GameObject invinsibleUp;
+    public GameObject rapidUp;
+    public GameObject speedUp;
+
     public ParticleSystem bloodstream;
     private Vector3 clonePos;
     public List<GameObject> walls = new List<GameObject>();
     public List<GameObject> trees = new List<GameObject>();
     public List<GameObject> viruses = new List<GameObject>();
+    public List<GameObject> pickups = new List<GameObject>();
     public Animator doorAnim;
 
     public int score;
     public int totScore;
     public int vCount;
+    public int pCount;
     public int level;
     private int grid = 10;
     public int size = 100;
@@ -59,7 +69,6 @@ public class fieldGenerator : MonoBehaviour
         bloodstream.Stop();
         doorAnim.SetBool("doorOpen", doorOpen);
 
-        //phage = GameObject.Find("Assets/derek/Phage/phageNew");
         playerPhage = Instantiate(phage, startSpawn.transform.position, phage.transform.rotation);
         GameObject.Find("Main Camera").GetComponent<cameraScript>().player = playerPhage;
 
@@ -123,15 +132,59 @@ public class fieldGenerator : MonoBehaviour
         //Make new viruses
         while (viruses.Count < vCount)
         {
-            for (int x = (-size / 2); x <= (size / 2) - grid; x += grid)
+            for (int x = (-size / 2); x <= (size / 2) - (2*grid); x += grid)
             {
-                for (int z = (-size / 2) + (grid / 2); z <= (size / 2) - (grid); z += grid)
+                for (int z = (-size / 2) + (grid / 2); z <= (size / 2) - (2*grid); z += grid)
                 {
                     rndVir = Random.Range(0, 3);
                     if ((rndVir == 1) && (viruses.Count < vCount))
                     {
                         clonePos = new Vector3(x + 5, 0, z);
                         viruses.Add(Instantiate(virus, clonePos, virus.transform.rotation));
+                    }
+                }
+            }
+        }
+    }
+
+    void pickupSpawn()
+    {
+        //Destroy old pickups
+        for (int i = 0; i < pickups.Count; i++)
+        {
+            Destroy(pickups[i]);
+        }
+        pickups = new List<GameObject>(0);
+
+        pCount = level * 2;
+
+        while (pickups.Count < pCount)
+        {
+            for (int x = (-size / 2) + (2 * grid); x <= (size / 2) - (2*grid); x += grid)
+            {
+                for (int z = (-size / 2) + (grid / 2) + (2 * grid); z <= (size / 2) - (2*grid); z += grid)
+                {
+                    rndPup = Random.Range(0, 3);
+                    rndPupPick = Random.Range(0, 4);
+                    if ((rndPup == 1) && (pickups.Count < pCount))
+                    {
+                        clonePos = new Vector3(x + 5, 3, z);
+                        if(rndPupPick == 0)
+                        {
+                            pickups.Add(Instantiate(healthUp, clonePos, healthUp.transform.rotation));
+                        }
+                        if (rndPupPick == 1)
+                        {
+                            pickups.Add(Instantiate(invinsibleUp, clonePos, invinsibleUp.transform.rotation));
+                        }
+                        if (rndPupPick == 2)
+                        {
+                            pickups.Add(Instantiate(rapidUp, clonePos, rapidUp.transform.rotation));
+                        }
+                        if (rndPupPick == 3)
+                        {
+                            pickups.Add(Instantiate(speedUp, clonePos, speedUp.transform.rotation));
+                        }
                     }
                 }
             }
@@ -157,13 +210,28 @@ public class fieldGenerator : MonoBehaviour
         }
         walls = new List<GameObject>(0);
         trees = new List<GameObject>(0);
+
+        //Used to resize NavMesh, but does something strange.
+        if( level%3 == 0)
+        {
+            size = 100 + (level/3)*20;
+            organFloor.transform.localScale = new Vector3(size, 20, size);
+        }
+
+        surface.RemoveData();
+        surface.BuildNavMesh();
+
+        //Make pickups after the first level
+        if ( level > 1)
+        {
+            pickupSpawn();
+        }
+
         //Do this only when not doing the reset field operation
         if (!resetField)
         {
             viralMaker();
         }
-        //Used to resize NavMesh, but does something strange.
-        //surface.BuildNavMesh();
 
         //Make new bits.
         for (int x = (-size / 2); x <= (size / 2); x += grid)

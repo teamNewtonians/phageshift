@@ -22,6 +22,8 @@ public class menuMaker : MonoBehaviour
     public GameObject hudPanel;
     public GameObject gameOverPanel;
     public GameObject scoresMenu;
+    public GameObject stageCleared;
+    public GameObject guideMessage;
     public GameObject playerPhage;
     public InputField inputField;
 
@@ -64,6 +66,9 @@ public class menuMaker : MonoBehaviour
         gameOverPanel = GameObject.Find("GameOver");
         scoresMenu = GameObject.Find("ScoreMenu");
 
+        stageCleared = GameObject.Find("StageCleared");
+        guideMessage = GameObject.Find("GuideMessage");
+
         scoreNtimer = GameObject.Find("scoreNtimer").GetComponent<Text>();
         levelText = GameObject.Find("levelText").GetComponent<Text>();
         scoreBoard = GameObject.Find("ScoresPanel/Text").GetComponent<Text>();
@@ -89,7 +94,7 @@ public class menuMaker : MonoBehaviour
     void Update()
     {
         //Necessary for webgl builds?
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
         playerPhage = GameObject.Find("playField").GetComponent<fieldGenerator>().playerPhage;
 
         timer += Time.deltaTime;
@@ -117,6 +122,25 @@ public class menuMaker : MonoBehaviour
         submitButton.SetBool("isPressed", false);
         restartButton.SetBool("isPressed", false);
         backtitle.SetBool("isPressed", false);
+
+        //HUD messages
+        if(GameObject.Find("playField").GetComponent<fieldGenerator>().score == 0 && !(paused || seeStart || gameOver || seeScores))
+        {
+            guideMessage.SetActive(true);
+        }
+        else
+        {
+            guideMessage.SetActive(false);
+        }
+
+        if (GameObject.Find("playField").GetComponent<fieldGenerator>().score == GameObject.Find("playField").GetComponent<fieldGenerator>().vCount && !(paused || seeStart || gameOver || seeScores))
+        {
+            stageCleared.SetActive(true);
+        }
+        else
+        {
+            stageCleared.SetActive(false);
+        }
 
         if (hud)
         {
