@@ -2,7 +2,7 @@
 #### CPSC6830 - Game Programming Final Project - Phage Shift game.
 #### Members: Benjamin Warner, Derek Andrews, Hayden Lewis
 
-[Check out our first build!!!](https://teamnewtonian.github.io/phageshift/build-web)
+[Check out our first build!!!](https://teamnewtonian.github.io/phageshift/build-web1)
 
 [Check out our blog!](https://teamnewtonian.github.io/phageshift/blog)
 
