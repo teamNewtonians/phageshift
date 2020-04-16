@@ -25,12 +25,12 @@ public class cameraScript : MonoBehaviour
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         transform.position = player.transform.position + offset;
 
-        if (Input.GetKey(KeyCode.Z)) //Rotates right when Z is pressed
+        if (Input.GetKey(KeyCode.Q)) //Rotates right when Q is pressed
         {
             transform.RotateAround(player.transform.position, Vector3.up, -50 * Time.deltaTime);
             offset = transform.position - player.transform.position;
         }
-        if (Input.GetKey(KeyCode.X)) //Rotates left when X is pressed
+        if (Input.GetKey(KeyCode.E)) //Rotates left when Q is pressed
         {
             transform.RotateAround(player.transform.position, Vector3.up, 50 * Time.deltaTime);
             offset = transform.position - player.transform.position;
