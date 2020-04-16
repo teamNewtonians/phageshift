@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8488917981846673046}
   - component: {fileID: 8488917981846673047}
   - component: {fileID: 8488917981846673040}
-  - component: {fileID: 6570189677355360627}
+  - component: {fileID: 2046188054038319507}
   m_Layer: 0
   m_Name: health
   m_TagString: healthPowerUp
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8488917981846673041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.847195, y: 3.56, z: 45.675743}
-  m_LocalScale: {x: 1.2482821, y: 3.7680604, z: 1.3975476}
+  m_LocalScale: {x: 36.042164, y: 108.796776, z: 40.35197}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,11 +116,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!33 &6570189677355360627
+--- !u!33 &2046188054038319507
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8488917981846673041}
-  m_Mesh: {fileID: 4068373912626513877, guid: 4edeab330b455da4a84a7234b695589b, type: 3}
+  m_Mesh: {fileID: 4068373912626513877, guid: d4e771a7c1070da43b92a6f82865178d, type: 3}
