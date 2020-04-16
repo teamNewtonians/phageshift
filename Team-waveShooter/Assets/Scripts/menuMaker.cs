@@ -88,7 +88,7 @@ public class menuMaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Necessary for webgl builds
+        //Necessary for webgl builds?
         PlayerPrefs.Save();
         playerPhage = GameObject.Find("playField").GetComponent<fieldGenerator>().playerPhage;
 
