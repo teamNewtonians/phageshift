@@ -121,25 +121,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 65ff622520043e54eacb6361da248c04, type: 2}
---- !u!1001 &99536356
+--- !u!1001 &259874999
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 197202439646908994, guid: c2f1d4bed20d8d64c8073d18494f98cd,
-        type: 3}
-      propertyPath: cellWallX
-      value: 
-      objectReference: {fileID: 6905551853719920149, guid: f1508fe08b7e7e84b8198f5e4c278d15,
-        type: 3}
-    - target: {fileID: 197202439646908994, guid: c2f1d4bed20d8d64c8073d18494f98cd,
-        type: 3}
-      propertyPath: cellWallZ
-      value: 
-      objectReference: {fileID: 3661929253636378507, guid: a08620236ade631469c03ca5a3f9e9a8,
-        type: 3}
     - target: {fileID: 197202439646908995, guid: c2f1d4bed20d8d64c8073d18494f98cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -178,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 197202439646908995, guid: c2f1d4bed20d8d64c8073d18494f98cd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 197202439646908995, guid: c2f1d4bed20d8d64c8073d18494f98cd,
         type: 3}
@@ -408,7 +396,7 @@ PrefabInstance:
     - target: {fileID: 5193437217238666451, guid: 1fdcc9365f02b5247b4713cc87d80afd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5193437217238666451, guid: 1fdcc9365f02b5247b4713cc87d80afd,
         type: 3}

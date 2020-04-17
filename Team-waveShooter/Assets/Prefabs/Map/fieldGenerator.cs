@@ -193,12 +193,18 @@ public class fieldGenerator : MonoBehaviour
 
     void fieldMaker()
     {
-        playerPhage.GetComponent<NavMeshAgent>().Warp(startSpawn.transform.position);
+        //Used to resize NavMesh, but does something strange.
+        if (level % 5 == 0 && size < 500)
+        {
+            size = 100 + (level / 3) * 20;
+        }
 
         exitdoor.transform.position = new Vector3((-size / 2) + grid, 1, (-size / 2) + grid);
         startSpawn.transform.position = new Vector3((size / 2) - grid, 2, (size / 2) - grid);
         organFloor.transform.localScale = new Vector3(size, 20, size);
-        
+
+        playerPhage.GetComponent<NavMeshAgent>().Warp(startSpawn.transform.position);
+
         //Destroy old bits.
         for (int i = 0; i< walls.Count; i++)
         {
@@ -211,15 +217,8 @@ public class fieldGenerator : MonoBehaviour
         walls = new List<GameObject>(0);
         trees = new List<GameObject>(0);
 
-        //Used to resize NavMesh, but does something strange.
-        if( level%3 == 0)
-        {
-            size = 100 + (level/3)*20;
-            organFloor.transform.localScale = new Vector3(size, 20, size);
-        }
-
-        surface.RemoveData();
-        surface.BuildNavMesh();
+        //surface.RemoveData();
+        //surface.BuildNavMesh();
 
         //Make pickups after the first level
         if ( level > 1)
