@@ -16,7 +16,7 @@ public class VirusControl : MonoBehaviour
   {
     anim = GetComponent<Animator>();
     isDead = false;
-    health = 1;
+    health = 3;
     chaseTarget = GameObject.FindWithTag("Player").transform;
   }
 
