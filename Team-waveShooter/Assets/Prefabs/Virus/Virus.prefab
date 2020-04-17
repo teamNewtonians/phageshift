@@ -3244,6 +3244,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: -3567987395699083657}
   isDead: 0
   health: 0
+  anim: {fileID: 0}
+  counter: 0
 --- !u!135 &1208002748023406951
 SphereCollider:
   m_ObjectHideFlags: 0
