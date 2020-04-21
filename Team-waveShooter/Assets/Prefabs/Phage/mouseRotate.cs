@@ -17,7 +17,7 @@ public class mouseRotate : MonoBehaviour {
     private bool pw=false;
     // Start is called before the first frame update
     void Start() {
-        Cursor.visible = false;
+        Cursor.visible = true;
         cooldown = 0;
 
         coolRect = GameObject.Find("HUD/Cooldown/coolVal").GetComponent<RectTransform>();
@@ -27,6 +27,14 @@ public class mouseRotate : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Time.timeScale == 0)
+        {
+            Cursor.visible = true;
+        }
+        if(Time.timeScale == 1)
+        {
+            Cursor.visible = false;
+        }
 
         coolRect.sizeDelta = new Vector2((int)10*cooldown, 25);
         coolText.text = "Cooldown: " + (int)cooldown;
@@ -48,7 +56,7 @@ public class mouseRotate : MonoBehaviour {
             cooldown = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && cooldown < 10.0f) {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && cooldown < 10.0f && Time.timeScale == 1) {
             GameObject bullet = Instantiate(projectile, shootFrom.transform.position, Quaternion.identity) as GameObject;
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
             cooldown += 25* Time.deltaTime;

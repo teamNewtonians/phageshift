@@ -358,6 +358,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2549309718035130346, guid: 1fdcc9365f02b5247b4713cc87d80afd,
+        type: 3}
+      propertyPath: m_Text
+      value: Mouse + click to select.
+      objectReference: {fileID: 0}
     - target: {fileID: 5193437217238666451, guid: 1fdcc9365f02b5247b4713cc87d80afd,
         type: 3}
       propertyPath: m_LocalPosition.x

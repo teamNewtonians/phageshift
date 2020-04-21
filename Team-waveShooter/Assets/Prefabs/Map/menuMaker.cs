@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class menuMaker : MonoBehaviour
 {
-    public int index;
-    public int maxIndex;
     public int fieldResetCount;
 
     public bool seeStart;
@@ -16,6 +14,7 @@ public class menuMaker : MonoBehaviour
     public bool gameOver;
     public bool seeScores;
     public bool restart;
+    public bool submitted;
 
     public GameObject startMenu;
     public GameObject pauseMenu;
@@ -25,6 +24,21 @@ public class menuMaker : MonoBehaviour
     public GameObject stageCleared;
     public GameObject guideMessage;
     public GameObject playerPhage;
+
+    public Vector2 startBPanelPos;
+    public Vector2 scoresBPanelPos;
+    public Vector2 quitBPanelPos;
+
+    public Vector2 resumeBPanelPos;
+    public Vector2 quit2BPanelPos;
+    public Vector2 resetBPanelPos;
+
+    public Vector2 restartBPanelPos;
+    public Vector2 quit3BPanelPos;
+    public Vector2 submitBPanelPos;
+
+    public Vector2 backBPanelPos;
+
     public InputField inputField;
 
     public Text scoreNtimer;
@@ -45,6 +59,8 @@ public class menuMaker : MonoBehaviour
 
     public float timer;
 
+    public Vector2 mousePos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,9 +70,8 @@ public class menuMaker : MonoBehaviour
         gameOver = false;
         seeScores = false;
         restart = false;
+        submitted = false;
 
-        index = 0;
-        maxIndex = 2;
         timer = 0;
         fieldResetCount = 0;
 
@@ -72,6 +87,31 @@ public class menuMaker : MonoBehaviour
         scoreNtimer = GameObject.Find("scoreNtimer").GetComponent<Text>();
         levelText = GameObject.Find("levelText").GetComponent<Text>();
         scoreBoard = GameObject.Find("ScoresPanel/Text").GetComponent<Text>();
+
+        //Button positions
+        startBPanelPos = new Vector2 (Mathf.Round(GameObject.Find("StartMenu/StartButton").GetComponent<RectTransform>().position.x),
+                Mathf.Round(GameObject.Find("StartMenu/StartButton").GetComponent<RectTransform>().position.y));
+        scoresBPanelPos = new Vector2(Mathf.Round(GameObject.Find("StartMenu/ScoresButton").GetComponent<RectTransform>().position.x),
+                Mathf.Round(GameObject.Find("StartMenu/ScoresButton").GetComponent<RectTransform>().position.y));
+        quitBPanelPos = new Vector2(Mathf.Round(GameObject.Find("StartMenu/QuitButton").GetComponent<RectTransform>().position.x),
+                Mathf.Round(GameObject.Find("StartMenu/QuitButton").GetComponent<RectTransform>().position.y));
+
+        resumeBPanelPos = new Vector2(Mathf.Round(GameObject.Find("PauseMenu/ResumeButton").GetComponent<RectTransform>().position.x),
+               Mathf.Round(GameObject.Find("PauseMenu/ResumeButton").GetComponent<RectTransform>().position.y));
+        quit2BPanelPos = new Vector2(Mathf.Round(GameObject.Find("PauseMenu/Quit2Button").GetComponent<RectTransform>().position.x),
+                Mathf.Round(GameObject.Find("PauseMenu/Quit2Button").GetComponent<RectTransform>().position.y));
+        resetBPanelPos = new Vector2(Mathf.Round(GameObject.Find("PauseMenu/ResetField").GetComponent<RectTransform>().position.x),
+                Mathf.Round(GameObject.Find("PauseMenu/ResetField").GetComponent<RectTransform>().position.y));
+
+        restartBPanelPos = new Vector2(Mathf.Round(GameObject.Find("GameOver/RestartButton").GetComponent<RectTransform>().position.x),
+               Mathf.Round(GameObject.Find("GameOver/RestartButton").GetComponent<RectTransform>().position.y));
+        submitBPanelPos = new Vector2(Mathf.Round(GameObject.Find("GameOver/SubmitButton").GetComponent<RectTransform>().position.x),
+                Mathf.Round(GameObject.Find("GameOver/SubmitButton").GetComponent<RectTransform>().position.y));
+        quit3BPanelPos = new Vector2(Mathf.Round(GameObject.Find("GameOver/Quit3Button").GetComponent<RectTransform>().position.x),
+                Mathf.Round(GameObject.Find("GameOver/Quit3Button").GetComponent<RectTransform>().position.y));
+
+        backBPanelPos = new Vector2(Mathf.Round(GameObject.Find("ScoreMenu/BackTitle").GetComponent<RectTransform>().position.x),
+               Mathf.Round(GameObject.Find("ScoreMenu/BackTitle").GetComponent<RectTransform>().position.y));
 
         //Button animators
         startButton = GameObject.Find("StartMenu/StartButton").GetComponent<Animator>();
@@ -93,6 +133,8 @@ public class menuMaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
         //Necessary for webgl builds?
         //PlayerPrefs.Save();
         playerPhage = GameObject.Find("playField").GetComponent<fieldGenerator>().playerPhage;
@@ -199,51 +241,26 @@ public class menuMaker : MonoBehaviour
         //Game over menu functionality
         if (gameOver)
         {
-            maxIndex = 2;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (index < maxIndex)
-                {
-                    index++;
-                }
-                else
-                {
-                    index = 0;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (index > 0)
-                {
-                    index--;
-                }
-                else
-                {
-                    index = maxIndex;
-                }
-            }
-
-            if (index == 0)
+            if (Vector2.Distance(restartBPanelPos, mousePos) < 30)
             {
                 restartButton.SetBool("isSelected", true);
                 quit3Button.SetBool("isSelected", false);
                 submitButton.SetBool("isSelected", false);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     restartButton.SetBool("isPressed", true);
                     restartButton.SetBool("isSelected", false);
                     timer = 0;
                     restart = true;
-                    index = 5;
                 }
             }
-            if (index == 1)
+            if (Vector2.Distance(submitBPanelPos, mousePos) < 30)
             {
                 restartButton.SetBool("isSelected", false);
                 quit3Button.SetBool("isSelected", false);
                 submitButton.SetBool("isSelected", true);
 
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && !submitted)
                 {
                     submitButton.SetBool("isPressed", true);
                     submitButton.SetBool("isSelected", false);
@@ -251,21 +268,19 @@ public class menuMaker : MonoBehaviour
                     //Take input and put it in PlayerPrefs with score values.
                     playerName = inputField.text.ToString();
                     AddScore(playerName, GameObject.Find("playField").GetComponent<fieldGenerator>().totScore, (int)timer, fieldResetCount);
-
-                    index = 5;
+                    submitted = true;
                 }
             }
-            if (index == 2)
+            if (Vector2.Distance(quit3BPanelPos, mousePos) < 30)
             {
                 restartButton.SetBool("isSelected", false);
                 quit3Button.SetBool("isSelected", true);
                 submitButton.SetBool("isSelected", false);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     quit3Button.SetBool("isPressed", true);
                     quit3Button.SetBool("isSelected", false);
                     seeStart = true;
-                    index = 5;
                 }
             }
         }
@@ -274,7 +289,6 @@ public class menuMaker : MonoBehaviour
         if (seeScores)
         {
             seeStart = false;
-            maxIndex = 2;
 
             //Display scores...
             scoreBoard.text = "| Phage:   | Score:   | Time:    | Resets:  |\n--------------------------------------------------\n";
@@ -291,42 +305,14 @@ public class menuMaker : MonoBehaviour
                 }
             }
 
-
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (index < maxIndex)
-                {
-                    index++;
-                }
-                else
-                {
-                    index = 0;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (index > 0)
-                {
-                    index--;
-                }
-                else
-                {
-                    index = maxIndex;
-                }
-            }
-
-            if (index == 0)
-            {
-            }
-            if (index == 1)
+            if (Vector2.Distance(backBPanelPos, mousePos) < 30)
             {
                 backtitle.SetBool("isSelected", true);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     backtitle.SetBool("isPressed", true);
                     backtitle.SetBool("isSelected", false);
                     seeStart = true;
-                    index = 5;
                 }
             }
         }
@@ -335,68 +321,42 @@ public class menuMaker : MonoBehaviour
         if (paused)
         {
             seeScores = false;
-            maxIndex = 2;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (index < maxIndex)
-                {
-                    index++;
-                }
-                else
-                {
-                    index = 0;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (index > 0)
-                {
-                    index--;
-                }
-                else
-                {
-                    index = maxIndex;
-                }
-            }
 
-            if (index == 0)
+            if (Vector2.Distance(resumeBPanelPos, mousePos) < 30)
             {
                 resumeButton.SetBool("isSelected", true);
                 quit2Button.SetBool("isSelected", false);
                 resetButton.SetBool("isSelected", false);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     resumeButton.SetBool("isPressed", true);
                     resumeButton.SetBool("isSelected", false);
                     paused = false;
-                    index = 5;
                 }
             }
-            if (index == 1)
+            if (Vector2.Distance(quit2BPanelPos, mousePos) < 30)
             {
                 resumeButton.SetBool("isSelected", false);
                 quit2Button.SetBool("isSelected", true);
                 resetButton.SetBool("isSelected", false);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     quit2Button.SetBool("isPressed", true);
                     quit2Button.SetBool("isSelected", false);
                     seeStart = true;
-                    index = 5;
                 }
             }
-            if (index == 2)
+            if (Vector2.Distance(resetBPanelPos, mousePos) < 30)
             {
                 resumeButton.SetBool("isSelected", false);
                 quit2Button.SetBool("isSelected", false);
                 resetButton.SetBool("isSelected", true);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     resetButton.SetBool("isPressed", true);
                     GameObject.Find("playField").GetComponent<fieldGenerator>().resetField = true;
                     fieldResetCount += 1;
                     resetButton.SetBool("isSelected", false);
-                    index = 5;
                 }
             }
         }
@@ -404,73 +364,47 @@ public class menuMaker : MonoBehaviour
         //Start menu funtionality
         if (seeStart)
         {
-            maxIndex = 2;
             paused = false;
             hud = false;
             gameOver = false;
             seeScores = false;
-            
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (index < maxIndex)
-                {
-                    index++;
-                }
-                else
-                {
-                    index = 0;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (index > 0)
-                {
-                    index--;
-                }
-                else
-                {
-                    index = maxIndex;
-                }
-            }
+            submitted = false;
 
-            if( index == 0 )
+            if( Vector2.Distance(startBPanelPos, mousePos) < 30)
             {
                 startButton.SetBool("isSelected", true);
                 scoresButton.SetBool("isSelected", false);
                 quitButton.SetBool("isSelected", false);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     startButton.SetBool("isPressed", true);
                     startButton.SetBool("isSelected", false);
                     timer = 0;
                     seeStart = false;
-                    index = 5;
                 }
             }
-            if (index == 1)
+            if (Vector2.Distance(scoresBPanelPos, mousePos) < 30)
             {
                 startButton.SetBool("isSelected", false);
                 scoresButton.SetBool("isSelected", true);
                 quitButton.SetBool("isSelected", false);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     scoresButton.SetBool("isPressed", true);
                     scoresButton.SetBool("isSelected", false);
                     seeScores = true;
-                    index = 5;
                 }
             }
-            if (index == 2)
+            if (Vector2.Distance(quitBPanelPos, mousePos) < 30)
             {
                 startButton.SetBool("isSelected", false);
                 scoresButton.SetBool("isSelected", false);
                 quitButton.SetBool("isSelected", true);
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     quitButton.SetBool("isPressed", true);
                     quitButton.SetBool("isSelected", false);
                     Application.Quit();
-                    index = 5;
                 }
             }
         }

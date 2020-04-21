@@ -1384,7 +1384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Up-Down to select.  Enter to press.
+  m_Text: Mouse + click to select.
 --- !u!1 &4646818994071499558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,6 +1768,9 @@ MonoBehaviour:
   stageCleared: {fileID: 0}
   guideMessage: {fileID: 0}
   playerPhage: {fileID: 0}
+  startBPanelPos: {x: 0, y: 0}
+  scoresBPanelPos: {x: 0, y: 0}
+  quitBPanelPos: {x: 0, y: 0}
   inputField: {fileID: 2825527024352732715}
   scoreNtimer: {fileID: 0}
   levelText: {fileID: 0}
@@ -1784,6 +1787,7 @@ MonoBehaviour:
   submitButton: {fileID: 0}
   backtitle: {fileID: 0}
   timer: 0
+  mousePos: {x: 0, y: 0}
 --- !u!1 &5193437217344753510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,7 +4545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Up-Down to select.  Enter to press.
+  m_Text: Mouse + click to select.
 --- !u!1 &8446696370004748394
 GameObject:
   m_ObjectHideFlags: 0
