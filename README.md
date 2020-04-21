@@ -4,6 +4,8 @@
 
 [Check out our first build!!!](https://teamnewtonian.github.io/phageshift/build-web1)
 
+[Check out our second build!!!  Now with scores?](https://teamnewtonian.github.io/phageshift/build-web2)
+
 [Check out our blog!](https://teamnewtonian.github.io/phageshift/blog)
 
 ![Bacteriphages in their natural environment](https://teamnewtonian.github.io/phageshift/images/phage2.PNG)
