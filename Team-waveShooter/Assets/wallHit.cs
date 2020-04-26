@@ -34,6 +34,7 @@ public class wallHit : MonoBehaviour
     {
         if (other.tag == "Projectile")
         {
+            anim.Play("Damage");
             health--;
             Destroy(other.gameObject);
         }
