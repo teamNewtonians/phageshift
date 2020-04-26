@@ -6,12 +6,12 @@ public class wallHit : MonoBehaviour
 {
     public bool isDead;
     public int health;
-    //public Animator anim;
+    public Animator anim;
     public float counter;
 
     void Start()
     {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         isDead = false;
         health = 3;
     }
@@ -21,7 +21,7 @@ public class wallHit : MonoBehaviour
         if (health <= 0)
         {
             counter += Time.deltaTime;
-            //anim.SetTrigger("playDeath");
+            anim.SetTrigger("playDeath");
             if (counter >= 1f)
             {
                 isDead = true;

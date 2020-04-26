@@ -39,9 +39,8 @@ public class VirusControl : MonoBehaviour
   void OnTriggerEnter(Collider other)
   {
     if (other.tag == "Projectile") {
+      anim.Play("Damage");
       health--;
-      if(health > 0)
-        anim.Play("Damage");
       Destroy(other.gameObject);
     }
   }

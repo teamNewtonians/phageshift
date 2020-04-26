@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 2849596281748766908}
   - component: {fileID: 3998821611654705473}
   - component: {fileID: 2113632379498188059}
+  - component: {fileID: -787736283712404409}
   m_Layer: 0
   m_Name: cellWallZ
   m_TagString: wall
@@ -474,6 +475,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!95 &-787736283712404409
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3661929253636378507}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8122a30d34ed02d43bc9f86a7b57e0c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6081060498402319504
 GameObject:
   m_ObjectHideFlags: 0
