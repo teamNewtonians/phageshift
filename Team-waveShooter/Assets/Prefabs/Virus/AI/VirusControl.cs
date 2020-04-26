@@ -40,7 +40,8 @@ public class VirusControl : MonoBehaviour
   {
     if (other.tag == "Projectile") {
       health--;
-      anim.SetTrigger("Damage");
+      if(health > 0)
+        anim.Play("Damage");
       Destroy(other.gameObject);
     }
   }
