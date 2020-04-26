@@ -35,7 +35,6 @@ public class wallHit : MonoBehaviour
         if (other.tag == "Projectile")
         {
             health--;
-            //anim.SetTrigger("Damage");
             Destroy(other.gameObject);
         }
     }
