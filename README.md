@@ -100,4 +100,4 @@ Sound:
 https://freemusicarchive.org/music/BoxCat_Games - BoxCat Games
 
 Other: 
-Procedural Animation - Unity Tutorial for phagelegs by ironstar interactive - https://www.youtube.com/watch?v=EEP4Vgcnjxs
+Procedural Animation - Unity Tutorial for phage legs by Ironstar Interactive 
