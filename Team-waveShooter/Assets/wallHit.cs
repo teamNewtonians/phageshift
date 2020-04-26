@@ -32,7 +32,7 @@ public class wallHit : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Projectile")
+        if (other.tag == "Projectile" && health > 0)
         {
             anim.Play("Damage");
             health--;
