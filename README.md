@@ -77,3 +77,27 @@ collectibles, aesthetics, and improved map generation.
 
 So far, we’ve met at a couple of different times since we are all working from home and can easily meet and share
 screens through Zoom.
+
+### What did we learn?
+We learned various aspects of game devolopment and teamwork. We learned that unity is a massive engine that can be used to create anything.
+We learned how to use scripts to instantiate game objects in a procedural manner. 
+Animation and blending animation to be modified in unity. How to efficently manage a game with resources.
+The majority of this game we had to learn something new for.
+
+### What is great?
+The game. We spent alot of our free time on making this a game we wanted to play and be a complete game. 
+We are proud of our product and the work we put into it.
+
+### Thank you Dr.Joerg and Alex we appreciate your time in helping us and providing feedback.
+
+
+### Sources:
+Textures:
+Textures.com
+substanceshare.com
+
+Sound:
+https://freemusicarchive.org/music/BoxCat_Games - BoxCat Games
+
+Other: 
+Procedural Animation - Unity Tutorial for phagelegs by ironstar interactive - https://www.youtube.com/watch?v=EEP4Vgcnjxs
