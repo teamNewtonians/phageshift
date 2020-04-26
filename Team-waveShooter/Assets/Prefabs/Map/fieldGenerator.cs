@@ -78,6 +78,10 @@ public class fieldGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerPhage.transform.position.x > size/2 || playerPhage.transform.position.x < -size/2 || playerPhage.transform.position.y > size/2 || playerPhage.transform.position.y < -size/2)
+        {
+            playerPhage.GetComponent<CreatureController>().health = 0;
+        }
         seeStart = GameObject.Find("Menus").GetComponent<menuMaker>().seeStart;
         restart = GameObject.Find("Menus").GetComponent<menuMaker>().restart;
 
@@ -98,6 +102,14 @@ public class fieldGenerator : MonoBehaviour
                 Destroy(viruses[i]);
                 viruses.Remove(viruses[i]);
                 score += 1;
+            }
+        }
+        for (int i = 0; i < walls.Count; i++)
+        {
+            if (walls[i].GetComponent<wallHit>().isDead)
+            {
+                Destroy(walls[i]);
+                walls.Remove(walls[i]);
             }
         }
 
@@ -239,7 +251,7 @@ public class fieldGenerator : MonoBehaviour
             {
                 rndWall = Random.Range(0, 3);
                 rndTree = Random.Range(0, 3);
-                rndYofs = Random.Range(0, 3);
+                rndYofs = Random.Range(1, 3);
                 if ((rndWall == 1 || x == -size / 2 || x == size / 2) && !(x == (-size / 2) + grid || x == (size / 2) - grid))
                 {
                     clonePos = new Vector3(x, rndYofs, z);
@@ -259,7 +271,7 @@ public class fieldGenerator : MonoBehaviour
             for (int x = (-size / 2)+(grid/2); x <= (size / 2)- (grid / 2); x += grid)
             {
                 rndWall = Random.Range(0, 3);
-                rndYofs = Random.Range(0, 3);
+                rndYofs = Random.Range(1, 3);
                 if ((rndWall == 1 || z == -size / 2 || z == size / 2) && !(z == (-size / 2) + grid || z == (size / 2) - grid))
                 {
                     clonePos = new Vector3(x, rndYofs, z);
