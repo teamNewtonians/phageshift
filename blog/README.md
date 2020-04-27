@@ -29,5 +29,10 @@ Additionally, we are working on destructable walls and general improvement of pr
 
 ...
 ### Star Blog - Date April 27th 2020...
+This is the final stretch of the semester and it looks like all of the pieces are coming together.  Our 2nd build is live and it looks like the scoreboard has been working since it was implemented, though it could be prettier.
+
+Our goals have been met to make destructable walls and improve animations.  Most notable is an animation to indicate when damage is dealt.  Additionally, menus can now be navigated with mouse clicks!
+
+A decision was made to add some atmospheric music to the game after the last lecture discussing sound, and it really does add a sense of completeness to this build.
 
 ...
