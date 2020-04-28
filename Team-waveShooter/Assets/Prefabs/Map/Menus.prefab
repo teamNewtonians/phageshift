@@ -2779,7 +2779,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2796,14 +2796,17 @@ MonoBehaviour:
 
     Shift - run
 
-    QE - rotate
+    Q/E - rotate
     camera
 
     Mouse + click - shoot
 
+    R/F - raise/lower volume
+
     P - Pause/Resume
 
-    ESC - Quit game'
+    ESC
+    - Quit game'
 --- !u!1 &5193437218533823175
 GameObject:
   m_ObjectHideFlags: 0
