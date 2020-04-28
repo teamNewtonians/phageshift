@@ -1751,8 +1751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2012cc06e5807404da6b96c526acb962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
-  maxIndex: 0
   fieldResetCount: 0
   seeStart: 0
   paused: 0
@@ -1760,6 +1758,7 @@ MonoBehaviour:
   gameOver: 0
   seeScores: 0
   restart: 0
+  submitted: 0
   startMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
   hudPanel: {fileID: 0}
@@ -1771,6 +1770,13 @@ MonoBehaviour:
   startBPanelPos: {x: 0, y: 0}
   scoresBPanelPos: {x: 0, y: 0}
   quitBPanelPos: {x: 0, y: 0}
+  resumeBPanelPos: {x: 0, y: 0}
+  quit2BPanelPos: {x: 0, y: 0}
+  resetBPanelPos: {x: 0, y: 0}
+  restartBPanelPos: {x: 0, y: 0}
+  quit3BPanelPos: {x: 0, y: 0}
+  submitBPanelPos: {x: 0, y: 0}
+  backBPanelPos: {x: 0, y: 0}
   inputField: {fileID: 2825527024352732715}
   scoreNtimer: {fileID: 0}
   levelText: {fileID: 0}
@@ -3683,7 +3689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
+  m_AnchoredPosition: {x: 100, y: 60}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7617800932135101255
@@ -3854,7 +3860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 100, y: -60}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &900063517828494412

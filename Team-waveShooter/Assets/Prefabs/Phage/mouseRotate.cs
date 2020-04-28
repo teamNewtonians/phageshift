@@ -59,7 +59,7 @@ public class mouseRotate : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Mouse0) && cooldown < 10.0f && Time.timeScale == 1) {
             GameObject bullet = Instantiate(projectile, shootFrom.transform.position, Quaternion.identity) as GameObject;
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
-            cooldown += 25* Time.deltaTime;
+            cooldown += 15* Time.deltaTime;
         }
         else if (cooldown > 0)
         {

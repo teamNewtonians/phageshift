@@ -18,7 +18,8 @@ public class CreatureController : MonoBehaviour {
     private Vector3 target;
     public int health = 100;
     private bool invinsible= false;
-    private float temp;
+    private float temp1;
+    private float temp2;
     public ProceduralLegPlacement[] legs;
     private int index;
     public bool dynamicGait = false;
@@ -31,7 +32,8 @@ public class CreatureController : MonoBehaviour {
 
     void Start () {
         cam = GameObject.Find("Main Camera");
-        temp = walkSpeed;
+        temp1 = walkSpeed;
+        temp2 = sprintSpeed;
 
         healthRect = GameObject.Find("HUD/Health/healthVal").GetComponent<RectTransform>();
         healthText = GameObject.Find("HUD/Health/healthText").GetComponent<Text>();
@@ -99,6 +101,7 @@ public class CreatureController : MonoBehaviour {
         if (other.gameObject.tag == "speedPowerUp") {
             
             walkSpeed = 14;
+            sprintSpeed = 14;
             StartCoroutine(PowerUp(5f));
             Debug.Log("collected");
             other.gameObject.SetActive(false);
@@ -127,7 +130,8 @@ public class CreatureController : MonoBehaviour {
 
        
         yield return new WaitForSeconds(duration);
-        walkSpeed = temp;
+        walkSpeed = temp1;
+        sprintSpeed = temp2;
 
         Debug.Log("Power up ended");
     }

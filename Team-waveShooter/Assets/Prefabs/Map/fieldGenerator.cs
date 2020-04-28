@@ -78,7 +78,7 @@ public class fieldGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerPhage.transform.position.x > size/2 || playerPhage.transform.position.x < -size/2 || playerPhage.transform.position.y > size/2 || playerPhage.transform.position.y < -size/2)
+        if(playerPhage.transform.position.x > (size/2) || playerPhage.transform.position.x < -(size/2) || playerPhage.transform.position.z > (size/2) || playerPhage.transform.position.z < -(size/2))
         {
             playerPhage.GetComponent<CreatureController>().health = 0;
         }
