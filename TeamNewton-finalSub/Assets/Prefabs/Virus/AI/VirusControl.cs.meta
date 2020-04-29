@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bbe55b1c765097d4eb5f6fdfd0189b9c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - chaseTarget: {instanceID: 0}
+  - navMeshAgent: {instanceID: 0}
+  - anim: {fileID: 9100000, guid: 29920ac64b1e7a041846fc1a8fb08e58, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
