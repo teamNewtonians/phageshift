@@ -6,8 +6,7 @@
 
 [Check out our 2nd build!!!  Now with scores?](https://teamnewtonian.github.io/phageshift/build-web2)
 
-[Check out our 3rd and latest build!]
-(https://teamnewtonian.github.io/phageshift/build-web3)
+[Check out our 3rd and latest build!](https://teamnewtonian.github.io/phageshift/build-web3)
 
 [Check out our blog!](https://teamnewtonian.github.io/phageshift/blog)
 
